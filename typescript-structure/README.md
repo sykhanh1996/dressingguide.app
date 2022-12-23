@@ -50,3 +50,11 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 yarn add customize-cra react-app-rewired --dev
 
 yarn add --dev babel-plugin-module-resolver
+
+yarn add react-router
+yarn add @types/react-router
+yarn add react-router-dom
+yarn add @types/react-router-dom
+
+yarn add -D sass
+yarn add normalize.css
