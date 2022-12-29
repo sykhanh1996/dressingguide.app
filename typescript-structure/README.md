@@ -58,3 +58,8 @@ yarn add @types/react-router-dom
 
 yarn add -D sass
 yarn add normalize.css
+
+yarn add history
+yarn add @types/history
+yarn add antd
+yarn add @ant-design/icons
