@@ -65,3 +65,5 @@ yarn add antd
 yarn add @ant-design/icons
 
 yarn add react-dotenv
+
+yarn add clsx
