@@ -3,24 +3,25 @@
     margin-top: 90px;
     padding-top: 96px;
 
-    box-shadow: '5px 8px 24px 5px rgba(208, 216, 243, 0.6)';
-    background-color: white;
-    .col {
-    }
+    font-family: 'ui-sans-serif';
 
     h1:first-of-type {
+        font-size: 44px;
         span:nth-child(1) {
-            color: red;
+            color: #111827;
         }
         span:nth-child(2) {
-            color: blue;
+            color: #64748b;
         }
         span:nth-child(3) {
-            color: blueviolet;
+            color: #3b82f6;
         }
     }
-
-    .explain {
-        margin-top: 30px;
+    p:first-of-type {
+        font-size: 20px;
+        color: #57534e;
+    }
+    .search {
+        border: 1px solid #d9d9d9;
     }
 }
