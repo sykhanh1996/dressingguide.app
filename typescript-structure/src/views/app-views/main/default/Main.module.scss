@@ -1,3 +1,19 @@
 .main {
     text-align: center;
+
+    h1:first-of-type {
+        span:nth-child(1) {
+            color: red;
+        }
+        span:nth-child(2) {
+            color: blue;
+        }
+        span:nth-child(3) {
+            color: blueviolet;
+        }
+    }
+
+    .explain {
+        margin-top: 30px;
+    }
 }
