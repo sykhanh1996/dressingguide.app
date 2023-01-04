@@ -30,5 +30,34 @@
         padding-top: 5px;
     }
     .searchBar {
+        width: 100%;
+        padding: 16px 20px;
+        border: none;
+        border-radius: 4px;
+        text-decoration: none;
     }
+    input:focus {
+        outline: none;
+    }
+}
+.wrapper {
+    position: relative;
+}
+
+.icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    background-color: red;
+    padding: 4px;
+    position: absolute;
+    box-sizing: border-box;
+    top: 50%;
+    left: 2px;
+    transform: translateY(-50%);
+}
+
+.input {
+    height: 50px;
+    box-sizing: border-box;
+    padding-left: 1.5rem;
 }

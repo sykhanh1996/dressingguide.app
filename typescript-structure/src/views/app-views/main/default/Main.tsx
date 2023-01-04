@@ -1,13 +1,10 @@
-import { DribbbleOutlined, GithubOutlined, SkypeOutlined, TwitterOutlined } from '@ant-design/icons';
-import { Col, Divider, Row, Space } from 'antd';
-import Search from 'antd/es/input/Search';
+import { AudioOutlined, DribbbleOutlined, GithubOutlined, SkypeOutlined } from '@ant-design/icons';
+import { Col, Divider, Row, Select, Space } from 'antd';
 import clsx from 'clsx';
 import { Fragment } from 'react';
 import styles from './Main.module.scss';
 
 export const Main = () => {
-    const onSearch = (value: string) => console.log(value);
-
     return (
         <Fragment>
             <Row justify="center" className={clsx(styles.main)} style={{ backgroundColor: '#fff' }}>
@@ -39,19 +36,17 @@ export const Main = () => {
                                 </Space>
                             </Col>
                         </Row>
-                        {/* <div className={clsx(styles.searchTitle)}>
-                                <GithubOutlined style={{ fontSize: 15 }} />
-                            </div> */}
 
                         <Divider orientation="center" plain style={{ marginTop: 0, color: '#141414' }}>
                             Search
                         </Divider>
-                        <Space direction="vertical">
-                            <div className={clsx(styles.searchBar)}>searchBar</div>
-                        </Space>
                     </div>
                 </Col>
             </Row>
+            <div className={clsx(styles.wrapper)}>
+                <div className={clsx(styles.icon)}></div>
+                <input className={clsx(styles.input)}></input>
+            </div>
         </Fragment>
     );
 };
