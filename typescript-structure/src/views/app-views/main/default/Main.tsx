@@ -1,10 +1,50 @@
 import { AudioOutlined, DribbbleOutlined, GithubOutlined, SkypeOutlined } from '@ant-design/icons';
-import { Col, Divider, Row, Select, Space } from 'antd';
+import SearchInput from '@src/components/shared-components/Input/SearchInput/SearchInput';
+import SearchInPut from '@src/components/shared-components/Input/SearchInput/SearchInput';
+import { AutoComplete, Cascader, Col, Divider, Input, Row, Select, Space } from 'antd';
+import Search from 'antd/es/input/Search';
 import clsx from 'clsx';
 import { Fragment } from 'react';
 import styles from './Main.module.scss';
 
 export const Main = () => {
+    const onSearch = (value: string) => console.log(value);
+    const options = [
+        {
+            value: 'zhejiang',
+            label: 'Zhejiang',
+            children: [
+                {
+                    value: 'hangzhou',
+                    label: 'Hangzhou',
+                    children: [
+                        {
+                            value: 'xihu',
+                            label: 'West Lake',
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            value: 'jiangsu',
+            label: 'Jiangsu',
+            children: [
+                {
+                    value: 'nanjing',
+                    label: 'Nanjing',
+                    children: [
+                        {
+                            value: 'zhonghuamen',
+                            label: 'Zhong Hua Men',
+                        },
+                    ],
+                },
+            ],
+        },
+    ];
+    const { Option } = Select;
+
     return (
         <Fragment>
             <Row justify="center" className={clsx(styles.main)} style={{ backgroundColor: '#fff' }}>
@@ -36,17 +76,23 @@ export const Main = () => {
                                 </Space>
                             </Col>
                         </Row>
-
                         <Divider orientation="center" plain style={{ marginTop: 0, color: '#141414' }}>
                             Search
                         </Divider>
+                        <Row>
+                            <Col span={24}>
+                                <Input.Group compact>
+                                    <Select defaultValue="Zhejiang" style={{ width: '30%' }}>
+                                        <Option value="Zhejiang">Zhejiang</Option>
+                                        <Option value="Jiangsu">Jiangsu</Option>
+                                    </Select>
+                                    <Input style={{ width: '70%' }} defaultValue="Xihu District, Hangzhou" />
+                                </Input.Group>
+                            </Col>
+                        </Row>
                     </div>
                 </Col>
             </Row>
-            <div className={clsx(styles.wrapper)}>
-                <div className={clsx(styles.icon)}></div>
-                <input className={clsx(styles.input)}></input>
-            </div>
         </Fragment>
     );
 };
