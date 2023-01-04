@@ -6,10 +6,8 @@ import { RouteProps } from 'react-router-dom';
 
 export const AppLayout = ({ children }: RouteProps) => {
     return (
-        <Layout>
-            <Content>
-                <Suspense fallback={<Loading />}>{children}</Suspense>
-            </Content>
-        </Layout>
+        <Content>
+            <Suspense fallback={<Loading />}>{children}</Suspense>
+        </Content>
     );
 };
