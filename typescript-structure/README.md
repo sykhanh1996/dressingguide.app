@@ -72,3 +72,4 @@ yarn add -D tailwindcss
 npx tailwindcss init
 
 yarn add react-icons
+(daisyUI)
