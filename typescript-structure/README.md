@@ -67,3 +67,8 @@ yarn add @ant-design/icons
 yarn add react-dotenv
 
 yarn add clsx
+
+yarn add -D tailwindcss
+npx tailwindcss init
+
+yarn add react-icons
