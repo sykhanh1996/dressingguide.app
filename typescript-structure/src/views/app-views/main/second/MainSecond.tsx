@@ -44,8 +44,13 @@ export const MainSecond = () => {
                 {/* Input */}
                 <div className="self-center mt-8 bg-white dark:bg-black shadow-md w-full max-w-xl rounded overflow-hidden content">
                     <div className="relative h-8 flex items-center justify-between shadow-sm">
+                        <div className="ml-4 flex space-x-2 items-center">
+                            <span className="h-3 w-3 rounded-full bg-red-400" />
+                            <span className="h-3 w-3 rounded-full bg-yellow-400" />
+                            <span className="h-3 w-3 rounded-full bg-green-400" />
+                        </div>
                         <div className="absolute inset-0 pointer-events-none flex items-center justify-center text-sm font-light text-gray-500">
-                            Terminal
+                            Search
                         </div>
                     </div>
                     <div className="px-4 py-3 font-mono flex items-center">
