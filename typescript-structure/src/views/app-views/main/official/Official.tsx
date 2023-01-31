@@ -85,7 +85,7 @@ export const Official = () => {
                                             <div className={clsx(styles.colorItem, 'bg-yellow-400')}></div>
                                             <div className={clsx(styles.colorItem, 'bg-sky-400')}></div>
                                             <div className={clsx(styles.colorItem, 'bg-gray-400')}></div>
-                                            <div className={clsx(styles.colorItem, 'bg-Orange-400')}></div>
+                                            <div className={clsx(styles.colorItem, 'bg-orange-400')}></div>
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +96,7 @@ export const Official = () => {
 
                 {/* -- Suggested Color -- */}
                 <div className={clsx(styles.suggested, 'text-gray-500 mt-8 w-full')}>
-                    <h3 className="pt-8">Suggested Colors</h3>
+                    <h3 className="pt-8">Suggested Easy Complimentary Outfit Parings With:</h3>
                     <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                         <li>Item 1</li>
                         <li>Item 2</li>
