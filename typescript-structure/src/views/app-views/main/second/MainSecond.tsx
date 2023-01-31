@@ -2,7 +2,7 @@ import Fig from '@src/components/Icons/fig';
 import { FiArrowUpRight } from 'react-icons/fi';
 import { FaBasketballBall } from 'react-icons/fa';
 import { BsCheckAll } from 'react-icons/bs';
-
+import { BiSearchAlt } from 'react-icons/bi';
 import { SiGithub } from 'react-icons/si';
 import { Fragment } from 'react';
 
@@ -13,9 +13,9 @@ export const MainSecond = () => {
                 {/* Title */}
                 <h1 className="text-5xl font-extrabold text-gray-900 dark:text-white sm:text-center inline-flex items-center select-none">
                     <FaBasketballBall className="mr-2" size="1.2em" />
-                    <span>SportGears</span>
+                    <span>Gears</span>
                     <span>.</span>
-                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-500 to-cyan-600">
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-blue-600">
                         how?
                     </span>
                     <a
@@ -43,18 +43,36 @@ export const MainSecond = () => {
 
                 {/* Input */}
                 <div className="self-center mt-8 bg-white dark:bg-black shadow-md w-full max-w-xl rounded overflow-hidden content">
-                    <div className="relative h-8 flex items-center justify-between shadow-sm">
-                        <div className="ml-4 flex space-x-2 items-center">
+                    <div className="relative h-8 flex items-center justify-end shadow-sm">
+                        <div className="mr-4 flex space-x-2 items-center">
                             <span className="h-3 w-3 rounded-full bg-red-400" />
                             <span className="h-3 w-3 rounded-full bg-yellow-400" />
                             <span className="h-3 w-3 rounded-full bg-green-400" />
                         </div>
+                        {/* <div className="mr-4 text-gray-600 flex space-x-2 items-center">
+                            <button></button>
+                            <button></button>
+                            <button></button>
+                        </div> */}
                         <div className="absolute inset-0 pointer-events-none flex items-center justify-center text-sm font-light text-gray-500">
                             Search
                         </div>
                     </div>
                     <div className="px-4 py-3 font-mono flex items-center">
-                        <span className="text-gray-500 select-none">~</span>
+                        <span className="h-8 items-center flex text-gray-500 select-none">
+                            <BiSearchAlt />
+                        </span>
+                        <input
+                            type="text"
+                            name="command-string"
+                            id="command-string"
+                            autoFocus
+                            autoComplete="off"
+                            autoCorrect="off"
+                            autoCapitalize="off"
+                            spellCheck="false"
+                            className="h-8 grow ml-4 text-gray-900 border-none outline-none autofill:shadow-fill-white"
+                        ></input>
                     </div>
                 </div>
             </div>
