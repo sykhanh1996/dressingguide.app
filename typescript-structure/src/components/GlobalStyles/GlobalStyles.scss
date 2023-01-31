@@ -5,10 +5,23 @@
     padding: 0;
     box-sizing: border-box;
 }
+:root {
+    --border: rgb(229, 231, 235);
+}
+html {
+    font-size: 62.5%;
+}
+
+body {
+    // font-family: var(--font-family);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizespeed;
+    color: var(--text-color);
+    overflow-y: overlay;
+    background-color: rgb(245 248 255);
+}
 
 .mgt-30 {
     margin-top: 30px;
-}
-.ant-input {
-    border-radius: 100px;
 }

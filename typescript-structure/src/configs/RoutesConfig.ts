@@ -3,11 +3,11 @@ import { APP_PREFIX_PATH } from './AppConfig';
 
 export const publicRoutes = [
     {
-        key: 'second',
-        path: `${APP_PREFIX_PATH}/main/second`,
+        key: 'official',
+        path: `${APP_PREFIX_PATH}/main/official`,
         component: React.lazy(() =>
-            import('../views/app-views/main/second/MainSecond').then((module) => ({
-                default: module.MainSecond,
+            import('../views/app-views/main/official/Official').then((module) => ({
+                default: module.Official,
             })),
         ),
         meta: {
