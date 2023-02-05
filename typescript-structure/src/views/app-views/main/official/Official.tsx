@@ -15,10 +15,10 @@ export const Official = () => {
                 <header>
                     <h1 className={clsx(styles.header)}>
                         <FaBasketballBall className="mr-2" size="1.2em" />
-                        <span>Colors</span>
+                        <span>DressingGuide</span>
                         <span>.</span>
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-blue-600">
-                            Guide?
+                            Info?
                         </span>
                         <a
                             className="relative top-3.5 transform rotate-12 text-gray-500 hover:text-gray-600 dark:hover:text-gray-400"
@@ -98,15 +98,91 @@ export const Official = () => {
                 <div className={clsx(styles.suggested, 'text-gray-500 mt-8 w-full')}>
                     <h3 className="pt-8">Suggested Easy Complimentary Outfit Parings With:</h3>
                     <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        <li>Item 1</li>
-                        <li>Item 2</li>
-                        <li>Item 3</li>
-                        <li>Item 4</li>
-                        <li>Item 5</li>
-                        <li>Item 6</li>
+                        <li>
+                            <div className={clsx(styles.suggestedItem, 'flex items-center justify-center')}>
+                                <input type="radio" id="radio-one" name="switch-one" className="peer/green" />
+                                <label
+                                    htmlFor="radio-one"
+                                    className="peer-checked/green:border-4 peer-checked/green:border-green-500 bg-green-400 grid place-items-center shadow-md"
+                                >
+                                    Green
+                                </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div className={clsx(styles.suggestedItem, 'flex items-center justify-center')}>
+                                <input type="radio" id="radio-second" name="switch-one" className="peer/blue" />
+                                <label
+                                    htmlFor="radio-second"
+                                    className="peer-checked/blue:border-4 peer-checked/blue:border-blue-500 bg-blue-400 grid place-items-center shadow-md"
+                                >
+                                    Blue
+                                </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div className={clsx(styles.suggestedItem, 'flex items-center justify-center')}>
+                                <input type="radio" id="radio-3" name="switch-one" className="peer/red" />
+                                <label
+                                    htmlFor="radio-3"
+                                    className="peer-checked/red:border-4 peer-checked/red:border-red-500 bg-red-400 grid place-items-center shadow-md"
+                                >
+                                    Red
+                                </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div className={clsx(styles.suggestedItem, 'flex items-center justify-center')}>
+                                <input type="radio" id="radio-4" name="switch-one" className="peer/yellow" />
+                                <label
+                                    htmlFor="radio-4"
+                                    className="peer-checked/yellow:border-4 peer-checked/yellow:border-yellow-500 bg-yellow-400 grid place-items-center shadow-md"
+                                >
+                                    Yellow
+                                </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div className={clsx(styles.suggestedItem, 'flex items-center justify-center')}>
+                                <input type="radio" id="radio-5" name="switch-one" className="peer/sky" />
+                                <label
+                                    htmlFor="radio-5"
+                                    className="peer-checked/sky:border-4 peer-checked/sky:border-sky-500 bg-sky-400 grid place-items-center shadow-md"
+                                >
+                                    Sky
+                                </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div className={clsx(styles.suggestedItem, 'flex items-center justify-center')}>
+                                <input type="radio" id="radio-6" name="switch-one" className="peer/gray" />
+                                <label
+                                    htmlFor="radio-6"
+                                    className="peer-checked/gray:border-4 peer-checked/gray:border-gray-500 bg-gray-400 grid place-items-center shadow-md"
+                                >
+                                    Gray
+                                </label>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </main>
+            <footer className="w-full flex h-[4.75rem] items-center justify-center space-x-3 font-medium text-gray-500 text-xl pb-10">
+                <div className="flex-col">
+                    <div className="space-x-1 ">
+                        Made with <span className="opacity-40">❤</span> by
+                        <a href="!#" className="hover:text-gray-800 cursor-pointer">
+                            @sykhanh1996
+                        </a>
+                    </div>
+                    <a
+                        href="!#"
+                        className="flex justify-center text-md font-light items-center cursor-pointer hover:text-gray-800 pt-2"
+                    >
+                        Send feedback
+                    </a>
+                </div>
+            </footer>
         </Fragment>
     );
 };
