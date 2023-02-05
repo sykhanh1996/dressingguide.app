@@ -87,4 +87,20 @@ main {
         //     box-shadow: none;
         // }
     }
+    .selectColor {
+        input {
+            position: absolute !important;
+            clip: rect(0, 0, 0, 0);
+            height: 1px;
+            width: 1px;
+            border: 0;
+            overflow: hidden;
+        }
+        label {
+            height: 2.4rem;
+            width: 2.4rem;
+            border-radius: 50%;
+            margin-left: 1.5rem;
+        }
+    }
 }

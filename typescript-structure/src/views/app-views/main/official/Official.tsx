@@ -79,14 +79,43 @@ export const Official = () => {
                                     <div className={clsx(styles.mainColor)}>
                                         <span className="text-xl text-gray-900">Your Main Color: </span>
                                         <Input placeholder="Basic Colors" style={{ width: 150 }} value="#2317ff" />
-                                        <div className={clsx(styles.colorItems, 'flex')}>
-                                            <div className={clsx(styles.colorItem, 'bg-red-400')}></div>
-                                            <div className={clsx(styles.colorItem, 'bg-green-400')}></div>
-                                            <div className={clsx(styles.colorItem, 'bg-yellow-400')}></div>
-                                            <div className={clsx(styles.colorItem, 'bg-sky-400')}></div>
-                                            <div className={clsx(styles.colorItem, 'bg-gray-400')}></div>
-                                            <div className={clsx(styles.colorItem, 'bg-orange-400')}></div>
-                                        </div>
+                                        <ul className={clsx(styles.colorItems, 'flex')}>
+                                            <li>
+                                                <div
+                                                    className={clsx(
+                                                        styles.selectColor,
+                                                        'flex items-center justify-center',
+                                                    )}
+                                                >
+                                                    <input
+                                                        type="radio"
+                                                        id="radio-two"
+                                                        name="switch-two"
+                                                        className="peer/green"
+                                                    />
+                                                    <label
+                                                        htmlFor="radio-two"
+                                                        className="peer-checked/green:border-4 peer-checked/green:border-green-500 bg-red-400 grid place-items-center shadow-md"
+                                                    ></label>
+                                                </div>
+                                                {/* <div className={clsx(styles.colorItem, 'bg-red-400')}></div> */}
+                                            </li>
+                                            <li>
+                                                <div className={clsx(styles.colorItem, 'bg-green-400')}></div>
+                                            </li>
+                                            <li>
+                                                <div className={clsx(styles.colorItem, 'bg-yellow-400')}></div>
+                                            </li>
+                                            <li>
+                                                <div className={clsx(styles.colorItem, 'bg-sky-400')}></div>
+                                            </li>
+                                            <li>
+                                                <div className={clsx(styles.colorItem, 'bg-gray-400')}></div>
+                                            </li>
+                                            <li>
+                                                <div className={clsx(styles.colorItem, 'bg-orange-400')}></div>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
