@@ -1,11 +1,11 @@
 import { Fragment } from 'react';
 import styles from './Official.module.scss';
 import clsx from 'clsx';
-import { FaBasketballBall } from 'react-icons/fa';
+import { FaVest } from 'react-icons/fa';
 import { SiGithub } from 'react-icons/si';
 import { BsCheckAll } from 'react-icons/bs';
-import { HiCheck, HiInformationCircle, HiLink, HiMoon, HiSun, HiTerminal } from 'react-icons/hi';
-import { Breadcrumb, Input, Select } from 'antd';
+import { HiCheck, HiInformationCircle, HiMoon } from 'react-icons/hi';
+import { Breadcrumb, Input } from 'antd';
 
 export const Official = () => {
     return (
@@ -14,7 +14,7 @@ export const Official = () => {
                 {/* -- Header -- */}
                 <header>
                     <h1 className={clsx(styles.header)}>
-                        <FaBasketballBall className="mr-2" size="1.2em" />
+                        <FaVest className="mr-2" size="1.2em" />
                         <span>DressingGuide</span>
                         <span>.</span>
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-blue-600">
@@ -37,7 +37,7 @@ export const Official = () => {
                         easier for you to know what to
                     </span>
                     <a href="#!" rel="noopener noreferrer" className="inline-flex items-center space-x-1">
-                        <FaBasketballBall aria-hidden />
+                        <FaVest aria-hidden />
                         <span className="font-medium text-gray-800 hover:text-black dark:text-gray-200">Wear</span>
                         <BsCheckAll aria-hidden />
                     </a>
@@ -95,7 +95,7 @@ export const Official = () => {
                                                     />
                                                     <label
                                                         htmlFor="radio-1"
-                                                        className="peer-checked/itemRed:outline peer-checked/itemRed:outline-4 peer-checked/itemRed:outline-red-500 peer-checked/itemRed:outline-offset-1 bg-red-400 grid place-items-center shadow-md"
+                                                        className="peer-checked/itemRed:outline peer-checked/itemRed:outline-4 peer-checked/itemRed:outline-red-500 peer-checked/itemRed:outline-offset-1 bg-red-400 grid place-items-center shadow-md cursor-pointer"
                                                     ></label>
                                                 </div>
                                             </li>
@@ -114,21 +114,21 @@ export const Official = () => {
                                                     />
                                                     <label
                                                         htmlFor="radio-2"
-                                                        className="peer-checked/itemGreen:outline peer-checked/itemGreen:outline-4 peer-checked/itemGreen:outline-green-500 peer-checked/itemGreen:outline-offset-1 bg-green-400 grid place-items-center shadow-md"
+                                                        className="peer-checked/itemGreen:outline peer-checked/itemGreen:outline-4 peer-checked/itemGreen:outline-green-500 peer-checked/itemGreen:outline-offset-1 bg-green-400 grid place-items-center shadow-md cursor-pointer"
                                                     ></label>
                                                 </div>
                                             </li>
                                             <li>
-                                                <div className={clsx(styles.colorItem, 'bg-yellow-400')}></div>
+                                                {/* <div className={clsx(styles.colorItem, 'bg-yellow-400')}></div> */}
                                             </li>
                                             <li>
-                                                <div className={clsx(styles.colorItem, 'bg-sky-400')}></div>
+                                                {/* <div className={clsx(styles.colorItem, 'bg-sky-400')}></div> */}
                                             </li>
                                             <li>
-                                                <div className={clsx(styles.colorItem, 'bg-gray-400')}></div>
+                                                {/* <div className={clsx(styles.colorItem, 'bg-gray-400')}></div> */}
                                             </li>
                                             <li>
-                                                <div className={clsx(styles.colorItem, 'bg-orange-400')}></div>
+                                                {/* <div className={clsx(styles.colorItem, 'bg-orange-400')}></div> */}
                                             </li>
                                         </ul>
                                     </div>
@@ -147,7 +147,7 @@ export const Official = () => {
                                 <input type="radio" id="radio-one" name="switch-one" className="peer/green" />
                                 <label
                                     htmlFor="radio-one"
-                                    className="peer-checked/green:border-4 peer-checked/green:border-green-500 bg-green-400 grid place-items-center shadow-md"
+                                    className="peer-checked/green:border-4 peer-checked/green:border-green-500 hover:scale-110 peer-checked/green:scale-110 bg-green-400 grid place-items-center shadow-md"
                                 >
                                     Green
                                 </label>
@@ -158,7 +158,7 @@ export const Official = () => {
                                 <input type="radio" id="radio-second" name="switch-one" className="peer/blue" />
                                 <label
                                     htmlFor="radio-second"
-                                    className="peer-checked/blue:border-4 peer-checked/blue:border-blue-500 bg-blue-400 grid place-items-center shadow-md"
+                                    className="peer-checked/blue:border-4 peer-checked/blue:border-blue-500 hover:scale-110 peer-checked/blue:scale-110 bg-blue-400 grid place-items-center shadow-md"
                                 >
                                     Blue
                                 </label>
@@ -169,7 +169,7 @@ export const Official = () => {
                                 <input type="radio" id="radio-3" name="switch-one" className="peer/red" />
                                 <label
                                     htmlFor="radio-3"
-                                    className="peer-checked/red:border-4 peer-checked/red:border-red-500 bg-red-400 grid place-items-center shadow-md"
+                                    className="peer-checked/red:border-4 peer-checked/red:border-red-500 hover:scale-110 peer-checked/red:scale-110 bg-red-400 grid place-items-center shadow-md"
                                 >
                                     Red
                                 </label>
@@ -180,7 +180,7 @@ export const Official = () => {
                                 <input type="radio" id="radio-4" name="switch-one" className="peer/yellow" />
                                 <label
                                     htmlFor="radio-4"
-                                    className="peer-checked/yellow:border-4 peer-checked/yellow:border-yellow-500 bg-yellow-400 grid place-items-center shadow-md"
+                                    className="peer-checked/yellow:border-4 peer-checked/yellow:border-yellow-500 hover:scale-110 peer-checked/yellow:scale-110 bg-yellow-400 grid place-items-center shadow-md"
                                 >
                                     Yellow
                                 </label>
@@ -191,7 +191,7 @@ export const Official = () => {
                                 <input type="radio" id="radio-5" name="switch-one" className="peer/sky" />
                                 <label
                                     htmlFor="radio-5"
-                                    className="peer-checked/sky:border-4 peer-checked/sky:border-sky-500 bg-sky-400 grid place-items-center shadow-md"
+                                    className="peer-checked/sky:border-4 peer-checked/sky:border-sky-500 bg-sky-400 hover:scale-110 peer-checked/sky:scale-110  grid place-items-center shadow-md"
                                 >
                                     Sky
                                 </label>
@@ -202,7 +202,7 @@ export const Official = () => {
                                 <input type="radio" id="radio-6" name="switch-one" className="peer/gray" />
                                 <label
                                     htmlFor="radio-6"
-                                    className="peer-checked/gray:border-4 peer-checked/gray:border-gray-500 bg-gray-400 grid place-items-center shadow-md"
+                                    className="peer-checked/gray:border-4 peer-checked/gray:border-gray-500 hover:scale-110 peer-checked/gray:scale-110 bg-gray-400 grid place-items-center shadow-md"
                                 >
                                     Gray
                                 </label>

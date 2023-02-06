@@ -81,10 +81,10 @@ main {
         }
         label:hover {
             cursor: pointer;
+            //transform: scale(1.1);
         }
         // input:checked + label {
-        //     border: 3px solid #a5dc86;
-        //     box-shadow: none;
+        //     transform: scale(1.1);
         // }
     }
     .selectColor {
@@ -102,9 +102,5 @@ main {
             border-radius: 50%;
             margin-left: 1.5rem;
         }
-        // input:checked + label {
-        //     outline: 4px solid #a5dc86;
-        //     outline-offset: 1px;
-        // }
     }
 }
