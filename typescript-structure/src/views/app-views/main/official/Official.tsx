@@ -89,19 +89,34 @@ export const Official = () => {
                                                 >
                                                     <input
                                                         type="radio"
-                                                        id="radio-two"
-                                                        name="switch-two"
-                                                        className="peer/green"
+                                                        id="radio-1"
+                                                        name="switch-1"
+                                                        className="peer/itemRed"
                                                     />
                                                     <label
-                                                        htmlFor="radio-two"
-                                                        className="peer-checked/green:border-4 peer-checked/green:border-green-500 bg-red-400 grid place-items-center shadow-md"
+                                                        htmlFor="radio-1"
+                                                        className="peer-checked/itemRed:outline peer-checked/itemRed:outline-4 peer-checked/itemRed:outline-red-500 peer-checked/itemRed:outline-offset-1 bg-red-400 grid place-items-center shadow-md"
                                                     ></label>
                                                 </div>
-                                                {/* <div className={clsx(styles.colorItem, 'bg-red-400')}></div> */}
                                             </li>
                                             <li>
-                                                <div className={clsx(styles.colorItem, 'bg-green-400')}></div>
+                                                <div
+                                                    className={clsx(
+                                                        styles.selectColor,
+                                                        'flex items-center justify-center',
+                                                    )}
+                                                >
+                                                    <input
+                                                        type="radio"
+                                                        id="radio-2"
+                                                        name="switch-1"
+                                                        className="peer/itemGreen"
+                                                    />
+                                                    <label
+                                                        htmlFor="radio-2"
+                                                        className="peer-checked/itemGreen:outline peer-checked/itemGreen:outline-4 peer-checked/itemGreen:outline-green-500 peer-checked/itemGreen:outline-offset-1 bg-green-400 grid place-items-center shadow-md"
+                                                    ></label>
+                                                </div>
                                             </li>
                                             <li>
                                                 <div className={clsx(styles.colorItem, 'bg-yellow-400')}></div>
