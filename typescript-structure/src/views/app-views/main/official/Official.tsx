@@ -9,6 +9,33 @@ import { Breadcrumb, Input } from 'antd';
 import SuggestedRadio from '@src/components/shared-components/Input/SuggestedRadio/SuggestedRadio';
 
 export const Official = () => {
+    const suggestedItem = [
+        {
+            color: 'green',
+            id: 'sg-green',
+        },
+        {
+            color: 'blue',
+            id: 'sg-blue',
+        },
+        {
+            color: 'red',
+            id: 'sg-red',
+        },
+        {
+            color: 'yellow',
+            id: 'sg-yellow',
+        },
+        {
+            color: 'sky',
+            id: 'sg-sky',
+        },
+        {
+            color: 'gray',
+            id: 'sg-gray',
+        },
+    ];
+
     return (
         <Fragment>
             <main className="max-w-7xl min-h-[calc(100vh-4.75rem)] mx-auto py-14">
@@ -119,18 +146,6 @@ export const Official = () => {
                                                     ></label>
                                                 </div>
                                             </li>
-                                            <li>
-                                                {/* <div className={clsx(styles.colorItem, 'bg-yellow-400')}></div> */}
-                                            </li>
-                                            <li>
-                                                {/* <div className={clsx(styles.colorItem, 'bg-sky-400')}></div> */}
-                                            </li>
-                                            <li>
-                                                {/* <div className={clsx(styles.colorItem, 'bg-gray-400')}></div> */}
-                                            </li>
-                                            <li>
-                                                {/* <div className={clsx(styles.colorItem, 'bg-orange-400')}></div> */}
-                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -143,64 +158,13 @@ export const Official = () => {
                 <div className={clsx(styles.suggested, 'text-gray-500 mt-8 w-full')}>
                     <h3 className="pt-8">Suggested Easy Complimentary Outfit Parings With:</h3>
                     <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        <li>
-                            <SuggestedRadio color="green"></SuggestedRadio>
-                        </li>
-                        <li>
-                            <div className={clsx(styles.suggestedItem, 'flex items-center justify-center')}>
-                                <input type="radio" id="radio-second" name="switch-one" className="peer/blue" />
-                                <label
-                                    htmlFor="radio-second"
-                                    className="peer-checked/blue:border-4 peer-checked/blue:border-blue-500 hover:scale-110 peer-checked/blue:scale-110 bg-blue-400 grid place-items-center shadow-md"
-                                >
-                                    Blue
-                                </label>
-                            </div>
-                        </li>
-                        <li>
-                            <div className={clsx(styles.suggestedItem, 'flex items-center justify-center')}>
-                                <input type="radio" id="radio-3" name="switch-one" className="peer/red" />
-                                <label
-                                    htmlFor="radio-3"
-                                    className="peer-checked/red:border-4 peer-checked/red:border-red-500 hover:scale-110 peer-checked/red:scale-110 bg-red-400 grid place-items-center shadow-md"
-                                >
-                                    Red
-                                </label>
-                            </div>
-                        </li>
-                        <li>
-                            <div className={clsx(styles.suggestedItem, 'flex items-center justify-center')}>
-                                <input type="radio" id="radio-4" name="switch-one" className="peer/yellow" />
-                                <label
-                                    htmlFor="radio-4"
-                                    className="peer-checked/yellow:border-4 peer-checked/yellow:border-yellow-500 hover:scale-110 peer-checked/yellow:scale-110 bg-yellow-400 grid place-items-center shadow-md"
-                                >
-                                    Yellow
-                                </label>
-                            </div>
-                        </li>
-                        <li>
-                            <div className={clsx(styles.suggestedItem, 'flex items-center justify-center')}>
-                                <input type="radio" id="radio-5" name="switch-one" className="peer/sky" />
-                                <label
-                                    htmlFor="radio-5"
-                                    className="peer-checked/sky:border-4 peer-checked/sky:border-sky-500 bg-sky-400 hover:scale-110 peer-checked/sky:scale-110  grid place-items-center shadow-md"
-                                >
-                                    Sky
-                                </label>
-                            </div>
-                        </li>
-                        <li>
-                            <div className={clsx(styles.suggestedItem, 'flex items-center justify-center')}>
-                                <input type="radio" id="radio-6" name="switch-one" className="peer/gray" />
-                                <label
-                                    htmlFor="radio-6"
-                                    className="peer-checked/gray:border-4 peer-checked/gray:border-gray-500 hover:scale-110 peer-checked/gray:scale-110 bg-gray-400 grid place-items-center shadow-md"
-                                >
-                                    Gray
-                                </label>
-                            </div>
-                        </li>
+                        {suggestedItem.map((sg) => {
+                            return (
+                                <li key={sg.id}>
+                                    <SuggestedRadio color={sg.color} id={sg.id}></SuggestedRadio>
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
             </main>

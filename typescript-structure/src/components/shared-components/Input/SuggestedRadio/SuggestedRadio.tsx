@@ -3,8 +3,11 @@ import styles from './SuggestedRadio.module.scss';
 
 type SuggestedRadioProps = {
     color: string;
+    id: string;
 };
 const SuggestedRadio = (props: SuggestedRadioProps) => {
+    const inputClassName = 'peer/' + props.color;
+
     const labelClassName =
         'peer-checked/' +
         props.color +
@@ -12,16 +15,16 @@ const SuggestedRadio = (props: SuggestedRadioProps) => {
         props.color +
         ':border-' +
         props.color +
-        '-500 hover:scale-110 peer-checked/' +
+        '-500 peer-checked/' +
         props.color +
         ':scale-110 bg-' +
         props.color +
-        '-400';
-    const inputClassName = 'peer/' + props.color;
+        '-400' +
+        ' ';
     return (
         <div className={clsx(styles.suggestedItem, 'flex items-center justify-center')}>
-            <input type="radio" id="radio-one" name="switch-one" className={inputClassName} />
-            <label htmlFor="radio-one" className={labelClassName + ' grid place-items-center shadow-md'}>
+            <input type="radio" id={props.id} name="suggested-color" className={inputClassName} />
+            <label htmlFor={props.id} className={labelClassName + 'grid place-items-center hover:scale-110 shadow-md '}>
                 {/* capitalize the first letter */}
                 {props.color.charAt(0).toUpperCase() + props.color.slice(1)}
             </label>
