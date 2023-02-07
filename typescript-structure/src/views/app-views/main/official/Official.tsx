@@ -6,6 +6,7 @@ import { SiGithub } from 'react-icons/si';
 import { BsCheckAll } from 'react-icons/bs';
 import { HiCheck, HiInformationCircle, HiMoon } from 'react-icons/hi';
 import { Breadcrumb, Input } from 'antd';
+import SuggestedRadio from '@src/components/shared-components/Input/SuggestedRadio/SuggestedRadio';
 
 export const Official = () => {
     return (
@@ -143,15 +144,7 @@ export const Official = () => {
                     <h3 className="pt-8">Suggested Easy Complimentary Outfit Parings With:</h3>
                     <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                         <li>
-                            <div className={clsx(styles.suggestedItem, 'flex items-center justify-center')}>
-                                <input type="radio" id="radio-one" name="switch-one" className="peer/green" />
-                                <label
-                                    htmlFor="radio-one"
-                                    className="peer-checked/green:border-4 peer-checked/green:border-green-500 hover:scale-110 peer-checked/green:scale-110 bg-green-400 grid place-items-center shadow-md"
-                                >
-                                    Green
-                                </label>
-                            </div>
+                            <SuggestedRadio color="green"></SuggestedRadio>
                         </li>
                         <li>
                             <div className={clsx(styles.suggestedItem, 'flex items-center justify-center')}>
