@@ -5,7 +5,6 @@ import { FaVest } from 'react-icons/fa';
 import { SiGithub } from 'react-icons/si';
 import { BsCheckAll } from 'react-icons/bs';
 import { HiCheck, HiInformationCircle, HiMoon } from 'react-icons/hi';
-import { Breadcrumb, Input } from 'antd';
 import SuggestedRadio from '@src/components/shared-components/Input/SuggestedRadio/SuggestedRadio';
 
 export const Official = () => {
@@ -94,19 +93,14 @@ export const Official = () => {
                     </div>
                     <div className={clsx(styles.function)}>
                         <section>
-                            <nav className={clsx(styles.breadcrumb)}>
-                                <Breadcrumb separator=">">
-                                    <Breadcrumb.Item>Home</Breadcrumb.Item>
-                                    <Breadcrumb.Item>Colors</Breadcrumb.Item>
-                                </Breadcrumb>
-                            </nav>
+                            <nav className={clsx(styles.breadcrumb)}></nav>
                             <div className="functionContent">
                                 <h2>Wardrobe Color Guide</h2>
                                 {/* https://www.pinterest.com/pin/604186106279845396/visual-search/?imageSignature=ee6c5162639632c5ec69c2b54d9d1af5 */}
                                 <div className={clsx('pt-4')}>
                                     <div className={clsx(styles.mainColor)}>
                                         <span className="text-xl text-gray-900">Your Main Color: </span>
-                                        <Input placeholder="Basic Colors" style={{ width: 150 }} value="#2317ff" />
+                                        {/* <Input placeholder="Basic Colors" style={{ width: 150 }} value="#2317ff" /> */}
                                         <ul className={clsx(styles.colorItems, 'flex')}>
                                             <li>
                                                 <div
@@ -158,13 +152,11 @@ export const Official = () => {
                 <div className={clsx(styles.suggested, 'text-gray-500 mt-8 w-full')}>
                     <h3 className="pt-8">Suggested Easy Complimentary Outfit Parings With:</h3>
                     <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        {suggestedItem.map((sg) => {
-                            return (
-                                <li key={sg.id}>
-                                    <SuggestedRadio color={sg.color} id={sg.id}></SuggestedRadio>
-                                </li>
-                            );
-                        })}
+                        {suggestedItem.map((sg) => (
+                            <li key={sg.id}>
+                                <SuggestedRadio color={sg.color} id={sg.id}></SuggestedRadio>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </main>

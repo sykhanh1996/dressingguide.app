@@ -1,6 +1,4 @@
 import Loading from '@src/components/shared-components/Loading/Loading';
-import { Layout } from 'antd';
-import { Content } from 'antd/es/layout/layout';
 import { Suspense } from 'react';
 import { RouteProps } from 'react-router-dom';
 
