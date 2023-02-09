@@ -1,12 +1,9 @@
 import clsx from 'clsx';
 import styles from './SuggestedRadio.module.scss';
 import { useEffect } from 'react';
+import { ISuggestedRadioProp } from './SuggestedRadio.view-model';
 
-type SuggestedRadioProps = {
-    color: string;
-    id: string;
-};
-const SuggestedRadio = (props: SuggestedRadioProps) => {
+const SuggestedRadio = (props: ISuggestedRadioProp) => {
     const inputClassName = 'peer/' + props.color;
 
     const labelClassName =
@@ -28,27 +25,31 @@ const SuggestedRadio = (props: SuggestedRadioProps) => {
 
         labels.forEach((item) => {
             if ((item as HTMLLabelElement).htmlFor == event.target.id) {
-                item.classList.add('border-4', 'border-' + props.color + '-500', 'scale-110');
+                item.classList.add('border-4', 'border-' + props.colorName + '-500', 'scale-110');
             } else {
-                item.classList.remove('border-4', 'border-' + props.color + '-500', 'scale-110');
+                item.classList.remove('border-4', 'border-' + props.colorName + '-500', 'scale-110');
             }
         });
     };
-    useEffect(() => {
-        const labels = document.querySelectorAll(`.${styles.suggestedItem}>label`);
+    // useEffect(() => {
+    //     const labels = document.querySelectorAll(`.${styles.suggestedItem}>label`);
 
-        labels.forEach((item) => {
-            if (props.color == item.textContent?.toLowerCase()) {
-                item.classList.add('bg-' + props.color + '-400');
-            }
-        });
-    }, []);
+    //     labels.forEach((item) => {
+    //         if (props.color == item.textContent?.toLowerCase()) {
+    //             // item.st;
+    //         }
+    //     });
+    // }, []);
     return (
         <div className={clsx(styles.suggestedItem, 'flex items-center justify-center')}>
             <input type="radio" id={props.id} name="suggested-color" onChange={handleChange} />
-            <label htmlFor={props.id} className={'grid place-items-center hover:scale-110 shadow-md labelColor'}>
+            <label
+                htmlFor={props.id}
+                className={'grid place-items-center hover:scale-110 shadow-md labelColor'}
+                style={{ backgroundColor: props.color }}
+            >
                 {/* capitalize the first letter */}
-                {props.color.charAt(0).toUpperCase() + props.color.slice(1)}
+                {props.colorName.charAt(0).toUpperCase() + props.colorName.slice(1)}
             </label>
         </div>
     );

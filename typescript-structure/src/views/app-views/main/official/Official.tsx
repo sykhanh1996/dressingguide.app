@@ -5,36 +5,42 @@ import { FaVest } from 'react-icons/fa';
 import { SiGithub } from 'react-icons/si';
 import { BsCheckAll } from 'react-icons/bs';
 import { HiCheck, HiInformationCircle, HiMoon } from 'react-icons/hi';
+import { ISuggestedRadioProp } from '@src/components/shared-components/Input/SuggestedRadio/SuggestedRadio.view-model';
 import SuggestedRadio from '@src/components/shared-components/Input/SuggestedRadio/SuggestedRadio';
 
 export const Official = () => {
-    const suggestedItem = [
+    const suggestedItem: ISuggestedRadioProp[] = [
         {
-            color: 'green',
+            color: 'rgb(34 197 94)',
             id: 'sg-green',
+            colorName: 'green',
         },
         {
-            color: 'blue',
+            color: 'rgb(59 130 246)',
             id: 'sg-blue',
+            colorName: 'blue',
         },
         {
-            color: 'red',
+            color: 'rgb(239 68 68)',
             id: 'sg-red',
+            colorName: 'red',
         },
         {
-            color: 'yellow',
+            color: 'rgb(234 179 8)',
             id: 'sg-yellow',
+            colorName: 'yellow',
         },
         {
-            color: 'sky',
+            color: 'rgb(14 165 233)',
             id: 'sg-sky',
+            colorName: 'sky',
         },
         {
-            color: 'gray',
+            color: 'rgb(107 114 128)',
             id: 'sg-gray',
+            colorName: 'gray',
         },
     ];
-
     return (
         <Fragment>
             <main className="max-w-7xl min-h-[calc(100vh-4.75rem)] mx-auto py-14">
@@ -96,11 +102,55 @@ export const Official = () => {
                             <nav className={clsx(styles.breadcrumb)}></nav>
                             <div className="functionContent">
                                 <h2>Wardrobe Color Guide</h2>
+                                <div className="text-xl breadcrumbs">
+                                    <ul>
+                                        <li>
+                                            <a href="!#">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    className="w-6 h-6 mr-2 stroke-current"
+                                                >
+                                                    <path
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                        strokeWidth="2"
+                                                        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"
+                                                    ></path>
+                                                </svg>
+                                                Home
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                className="w-6 h-6 mr-2 stroke-current"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth="2"
+                                                    d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                                ></path>
+                                            </svg>
+                                            Color
+                                        </li>
+                                    </ul>
+                                </div>
                                 {/* https://www.pinterest.com/pin/604186106279845396/visual-search/?imageSignature=ee6c5162639632c5ec69c2b54d9d1af5 */}
                                 <div className={clsx('pt-4')}>
                                     <div className={clsx(styles.mainColor)}>
                                         <span className="text-xl text-gray-900">Your Main Color: </span>
-                                        {/* <Input placeholder="Basic Colors" style={{ width: 150 }} value="#2317ff" /> */}
+                                        <input
+                                            type="text"
+                                            placeholder="Type here"
+                                            className="input input-bordered input-md w-full max-w-xs text-lg"
+                                            value="#2317ff"
+                                        />
+
                                         <ul className={clsx(styles.colorItems, 'flex')}>
                                             <li>
                                                 <div
@@ -154,7 +204,7 @@ export const Official = () => {
                     <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                         {suggestedItem.map((sg) => (
                             <li key={sg.id}>
-                                <SuggestedRadio color={sg.color} id={sg.id}></SuggestedRadio>
+                                <SuggestedRadio {...sg}></SuggestedRadio>
                             </li>
                         ))}
                     </ul>
