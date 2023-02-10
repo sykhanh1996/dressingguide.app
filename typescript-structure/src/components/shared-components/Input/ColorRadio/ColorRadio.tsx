@@ -1,18 +1,24 @@
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
+import { ISuggestedRadioProp } from '../SuggestedRadio/SuggestedRadio.view-model';
 import styles from './ColorRadio.module.scss';
 
-type ColorRadioProps = {
-    color: string;
-    id: string;
-};
+const ColorRadio = (props: any) => {
+    const [checked, setChecked] = useState(false);
 
-const ColorRadio = (props: ColorRadioProps) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.checked) {
+            setChecked(true);
+        }
+    };
+
     return (
         <div className={clsx(styles.selectColor, 'flex items-center justify-center')}>
-            <input type="radio" id={props.id} name="color-radio" />
+            <input type="radio" id={'mainCl-' + props.id} name="mainColor-radio" onChange={handleChange} />
             <label
-                htmlFor={props.id}
-                className="peer-checked/itemRed:outline peer-checked/itemRed:outline-4 peer-checked/itemRed:outline-red-500 peer-checked/itemRed:outline-offset-1 bg-red-400 grid place-items-center shadow-md cursor-pointer"
+                htmlFor={'mainCl-' + props.id}
+                className="grid place-items-center shadow-md cursor-pointer"
+                style={{ backgroundColor: props.color, outlineColor: checked ? props.borderColor : '' }}
             ></label>
         </div>
     );

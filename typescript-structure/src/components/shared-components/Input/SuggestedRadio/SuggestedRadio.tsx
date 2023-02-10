@@ -13,9 +13,9 @@ const SuggestedRadio = (props: ISuggestedRadioProp) => {
     };
     return (
         <div className={clsx(styles.suggestedItem, 'flex items-center justify-center')}>
-            <input type="radio" id={props.id} name="suggested-color" onChange={handleChange} />
+            <input type="radio" id={'sg-' + props.id} name="suggested-color" onChange={handleChange} />
             <label
-                htmlFor={props.id}
+                htmlFor={'sg-' + props.id}
                 className={'grid place-items-center hover:scale-110 shadow-md labelColor'}
                 style={{ backgroundColor: props.color, borderColor: checked ? props.borderColor : '' }}
             >

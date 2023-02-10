@@ -1,15 +1,16 @@
 import { Fragment } from 'react';
 import styles from './Official.module.scss';
 import clsx from 'clsx';
-import { FaVest } from 'react-icons/fa';
+import { FaVest, FaCommentDots } from 'react-icons/fa';
 import { SiGithub } from 'react-icons/si';
 import { BsCheckAll } from 'react-icons/bs';
 import { HiCheck, HiInformationCircle, HiMoon } from 'react-icons/hi';
 import { ISuggestedRadioProp } from '@src/components/shared-components/Input/SuggestedRadio/SuggestedRadio.view-model';
 import SuggestedRadio from '@src/components/shared-components/Input/SuggestedRadio/SuggestedRadio';
+import ColorRadio from '@src/components/shared-components/Input/ColorRadio/ColorRadio';
 
 export const Official = () => {
-    const suggestedItem: ISuggestedRadioProp[] = [
+    const colorItems: ISuggestedRadioProp[] = [
         {
             color: 'rgb(34 197 94)',
             id: 'sg-green',
@@ -158,45 +159,12 @@ export const Official = () => {
                                             readOnly
                                         />
 
-                                        <ul className={clsx(styles.colorItems, 'flex')}>
-                                            <li>
-                                                <div
-                                                    className={clsx(
-                                                        styles.selectColor,
-                                                        'flex items-center justify-center',
-                                                    )}
-                                                >
-                                                    <input
-                                                        type="radio"
-                                                        id="radio-1"
-                                                        name="switch-1"
-                                                        className="peer/itemRed"
-                                                    />
-                                                    <label
-                                                        htmlFor="radio-1"
-                                                        className="peer-checked/itemRed:outline peer-checked/itemRed:outline-4 peer-checked/itemRed:outline-red-500 peer-checked/itemRed:outline-offset-1 bg-red-400 grid place-items-center shadow-md cursor-pointer"
-                                                    ></label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div
-                                                    className={clsx(
-                                                        styles.selectColor,
-                                                        'flex items-center justify-center',
-                                                    )}
-                                                >
-                                                    <input
-                                                        type="radio"
-                                                        id="radio-2"
-                                                        name="switch-1"
-                                                        className="peer/itemGreen"
-                                                    />
-                                                    <label
-                                                        htmlFor="radio-2"
-                                                        className="peer-checked/itemGreen:outline peer-checked/itemGreen:outline-4 peer-checked/itemGreen:outline-green-500 peer-checked/itemGreen:outline-offset-1 bg-green-400 grid place-items-center shadow-md cursor-pointer"
-                                                    ></label>
-                                                </div>
-                                            </li>
+                                        <ul className={clsx('flex')}>
+                                            {colorItems.map((cl) => (
+                                                <li key={cl.id}>
+                                                    <ColorRadio {...cl} />
+                                                </li>
+                                            ))}
                                         </ul>
                                     </div>
                                 </div>
@@ -209,7 +177,7 @@ export const Official = () => {
                 <div className={clsx(styles.suggested, 'text-gray-500 mt-8 w-full')}>
                     <h3 className="pt-8">Suggested Easy Complimentary Outfit Parings With:</h3>
                     <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        {suggestedItem.map((sg) => (
+                        {colorItems.map((sg) => (
                             <li key={sg.id}>
                                 <SuggestedRadio {...sg}></SuggestedRadio>
                             </li>
@@ -229,7 +197,7 @@ export const Official = () => {
                         href="!#"
                         className="flex justify-center text-md font-light items-center cursor-pointer hover:text-gray-800 pt-2"
                     >
-                        Send feedback
+                        Send feedback <FaCommentDots className="ml-2 mb-2" size="1.2em" />
                     </a>
                 </div>
             </footer>
