@@ -25,7 +25,8 @@
         cursor: pointer;
         //transform: scale(1.1);
     }
-    // input:checked + label {
-    //     transform: scale(1.1);
-    // }
+    input:checked + label {
+        border-width: 4px;
+        transform: scale(1.1);
+    }
 }
