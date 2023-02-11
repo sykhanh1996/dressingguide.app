@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, memo } from 'react';
 import styles from './Official.module.scss';
 import clsx from 'clsx';
 import { FaVest, FaCommentDots } from 'react-icons/fa';
@@ -9,7 +9,7 @@ import { ISuggestedRadioProp } from '@src/components/shared-components/Input/Sug
 import SuggestedRadio from '@src/components/shared-components/Input/SuggestedRadio/SuggestedRadio';
 import ColorRadio from '@src/components/shared-components/Input/ColorRadio/ColorRadio';
 
-export const Official = () => {
+const Official = () => {
     const colorItems: ISuggestedRadioProp[] = [
         {
             color: 'rgb(34 197 94)',
@@ -204,3 +204,5 @@ export const Official = () => {
         </Fragment>
     );
 };
+
+export default memo(Official);
