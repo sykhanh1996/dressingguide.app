@@ -7,7 +7,7 @@ export const publicRoutes = [
         path: `${APP_PREFIX_PATH}/main/official`,
         component: React.lazy(() =>
             import('../views/app-views/main/official/Official').then((module) => ({
-                default: module.Official,
+                default: module.default,
             })),
         ),
         meta: {
