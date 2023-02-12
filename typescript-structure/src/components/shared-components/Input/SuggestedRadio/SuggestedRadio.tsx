@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import styles from './SuggestedRadio.module.scss';
 import { useState } from 'react';
-import { ISuggestedRadioProp } from './SuggestedRadio.view-model';
+import { IColorItem } from './SuggestedRadio.view-model';
 
-const SuggestedRadio = (props: ISuggestedRadioProp) => {
+const SuggestedRadio = (props: IColorItem) => {
     const [checked, setChecked] = useState(false);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

@@ -1,9 +1,9 @@
-export interface ISuggestedRadioProp {
+export interface IColorItem {
     id: string;
     color: string;
     colorName: string;
     borderColor: string;
 }
-export interface ISuggestedRadioProps {
-    colors: ISuggestedRadioProps[];
+export interface IColorItems {
+    colorArr: IColorItem[];
 }

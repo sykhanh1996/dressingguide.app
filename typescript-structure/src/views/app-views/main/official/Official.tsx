@@ -5,50 +5,57 @@ import { FaVest, FaCommentDots } from 'react-icons/fa';
 import { SiGithub } from 'react-icons/si';
 import { BsCheckAll } from 'react-icons/bs';
 import { HiCheck, HiInformationCircle, HiMoon } from 'react-icons/hi';
-import { ISuggestedRadioProp } from '@src/components/shared-components/Input/SuggestedRadio/SuggestedRadio.view-model';
+import {
+    IColorItem,
+    IColorItems,
+} from '@src/components/shared-components/Input/SuggestedRadio/SuggestedRadio.view-model';
 import SuggestedRadio from '@src/components/shared-components/Input/SuggestedRadio/SuggestedRadio';
 import ColorRadio from '@src/components/shared-components/Input/ColorRadio/ColorRadio';
 import Breadcrumbs from '@src/components/shared-components/Breadcrumbs/Breadcrumbs';
 
+const colorItemsArr: IColorItem[] = [
+    {
+        color: 'rgb(34 197 94)',
+        id: 'sg-green',
+        colorName: 'green',
+        borderColor: 'rgb(74 222 128)',
+    },
+    {
+        color: 'rgb(59 130 246)',
+        id: 'sg-blue',
+        colorName: 'blue',
+        borderColor: 'rgb(96 165 250)',
+    },
+    {
+        color: 'rgb(239 68 68)',
+        id: 'sg-red',
+        colorName: 'red',
+        borderColor: 'rgb(252 165 165)',
+    },
+    {
+        color: 'rgb(234 179 8)',
+        id: 'sg-yellow',
+        colorName: 'yellow',
+        borderColor: 'rgb(250 204 21)',
+    },
+    {
+        color: 'rgb(14 165 233)',
+        id: 'sg-sky',
+        colorName: 'sky',
+        borderColor: 'rgb(56 189 248)',
+    },
+    {
+        color: 'rgb(107 114 128)',
+        id: 'sg-gray',
+        colorName: 'gray',
+        borderColor: 'rgb(156 163 175)',
+    },
+];
+var colorItems: IColorItems = {
+    colorArr: colorItemsArr,
+};
+
 const Official = () => {
-    const colorItems: ISuggestedRadioProp[] = [
-        {
-            color: 'rgb(34 197 94)',
-            id: 'sg-green',
-            colorName: 'green',
-            borderColor: 'rgb(74 222 128)',
-        },
-        {
-            color: 'rgb(59 130 246)',
-            id: 'sg-blue',
-            colorName: 'blue',
-            borderColor: 'rgb(96 165 250)',
-        },
-        {
-            color: 'rgb(239 68 68)',
-            id: 'sg-red',
-            colorName: 'red',
-            borderColor: 'rgb(252 165 165)',
-        },
-        {
-            color: 'rgb(234 179 8)',
-            id: 'sg-yellow',
-            colorName: 'yellow',
-            borderColor: 'rgb(250 204 21)',
-        },
-        {
-            color: 'rgb(14 165 233)',
-            id: 'sg-sky',
-            colorName: 'sky',
-            borderColor: 'rgb(56 189 248)',
-        },
-        {
-            color: 'rgb(107 114 128)',
-            id: 'sg-gray',
-            colorName: 'gray',
-            borderColor: 'rgb(156 163 175)',
-        },
-    ];
     return (
         <Fragment>
             <main className="max-w-7xl min-h-[calc(100vh-4.75rem)] mx-auto py-14">
@@ -125,13 +132,7 @@ const Official = () => {
                                             readOnly
                                         />
 
-                                        <ul className={clsx('flex')}>
-                                            {colorItems.map((cl) => (
-                                                <li key={cl.id}>
-                                                    <ColorRadio {...cl} />
-                                                </li>
-                                            ))}
-                                        </ul>
+                                        <ColorRadio {...colorItems} />
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +144,7 @@ const Official = () => {
                 <div className={clsx(styles.suggested, 'text-gray-500 mt-8 w-full')}>
                     <h3 className="pt-8">Suggested Easy Complimentary Outfit Parings With:</h3>
                     <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        {colorItems.map((sg) => (
+                        {colorItemsArr.map((sg) => (
                             <li key={sg.id}>
                                 <SuggestedRadio {...sg}></SuggestedRadio>
                             </li>
