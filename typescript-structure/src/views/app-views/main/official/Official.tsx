@@ -1,4 +1,4 @@
-import { Fragment, memo } from 'react';
+import { Fragment, memo, useState, useCallback } from 'react';
 import styles from './Official.module.scss';
 import clsx from 'clsx';
 import { FaVest, FaCommentDots } from 'react-icons/fa';
@@ -56,6 +56,15 @@ var colorItems: IColorItems = {
 };
 
 const Official = () => {
+    const [colorRadioCheckedValue, setColorRadioCheckedValue] = useState('#2317ff');
+
+    colorItems.setColorValue = useCallback(
+        (changeColorValue: any) => {
+            setColorRadioCheckedValue(changeColorValue);
+        },
+        [colorRadioCheckedValue],
+    );
+
     return (
         <Fragment>
             <main className="max-w-7xl min-h-[calc(100vh-4.75rem)] mx-auto py-14">
@@ -63,16 +72,14 @@ const Official = () => {
                 <header>
                     <h1 className={clsx(styles.header)}>
                         <FaVest className="mr-2" size="1.2em" />
-                        <span>DressingGuide</span>
-                        <span>.</span>
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-blue-600">
-                            Info?
-                        </span>
-                        <a
-                            className="relative top-3.5 transform rotate-12 text-gray-500 hover:text-gray-600 dark:hover:text-gray-400"
-                            href="#!"
-                            rel="noopener noreferrer"
-                        >
+                        <div className="max-h-[47px]">
+                            <span>DressingGuide</span>
+                            <span>.</span>
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-blue-600">
+                                Info?
+                            </span>
+                        </div>
+                        <a className="text-gray-500 hover:text-gray-600 " href="#!" rel="noopener noreferrer">
                             <SiGithub size={18} />
                         </a>
                     </h1>
@@ -128,7 +135,7 @@ const Official = () => {
                                             type="text"
                                             placeholder="Type here"
                                             className="input input-bordered input-md w-full max-w-xs text-xl"
-                                            value="#2317ff"
+                                            value={colorRadioCheckedValue}
                                             readOnly
                                         />
 
@@ -143,13 +150,7 @@ const Official = () => {
                 {/* -- Suggested Color -- */}
                 <div className={clsx(styles.suggested, 'text-gray-500 mt-8 w-full')}>
                     <h3 className="pt-8">Suggested Easy Complimentary Outfit Parings With:</h3>
-                    <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        {colorItemsArr.map((sg) => (
-                            <li key={sg.id}>
-                                <SuggestedRadio {...sg}></SuggestedRadio>
-                            </li>
-                        ))}
-                    </ul>
+                    <SuggestedRadio {...colorItems} />
                 </div>
             </main>
             <footer className="w-full flex h-[4.75rem] items-center justify-center space-x-3 font-medium text-gray-500 text-xl pb-10">

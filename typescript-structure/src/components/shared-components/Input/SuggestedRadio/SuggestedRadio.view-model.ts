@@ -6,4 +6,5 @@ export interface IColorItem {
 }
 export interface IColorItems {
     colorArr: IColorItem[];
+    setColorValue?: (prev: any) => void;
 }
