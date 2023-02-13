@@ -51,20 +51,33 @@ const colorItemsArr: IColorItem[] = [
         borderColor: 'rgb(156 163 175)',
     },
 ];
-var colorItems: IColorItems = {
+var colorDatabase: IColorItems = {
     colorArr: colorItemsArr,
+    suggestColors: [],
 };
 
 const Official = () => {
-    const [colorRadioCheckedValue, setColorRadioCheckedValue] = useState('#2317ff');
+    const [colorRadioCheckedValue, setColorRadioCheckedValue] = useState('1');
+    const [colorItems, setColorItems] = useState(colorDatabase);
 
-    colorItems.setColorValue = useCallback(
-        (changeColorValue: any) => {
-            setColorRadioCheckedValue(changeColorValue);
-        },
-        [colorRadioCheckedValue],
-    );
+    colorDatabase.setColorValue = useCallback((changeColorValue: any) => {
+        setColorRadioCheckedValue(changeColorValue);
+        console.log('render setColorValue');
+    }, []);
 
+    // colorDatabase.setSuggestColors = useCallback((colorId: string) => {
+    //     colorDatabase.suggestColors = [
+    //         {
+    //             color: 'rgb(14 165 233)',
+    //             id: 'sg-sky',
+    //             colorName: 'sky',
+    //             borderColor: 'rgb(56 189 248)',
+    //         },
+    //     ];
+    //     setColorItems(colorDatabase);
+    //     console.log('render setsuggerted');
+    // }, []);
+    console.log('render official');
     return (
         <Fragment>
             <main className="max-w-7xl min-h-[calc(100vh-4.75rem)] mx-auto py-14">
@@ -130,7 +143,7 @@ const Official = () => {
                                 {/* https://www.pinterest.com/pin/604186106279845396/visual-search/?imageSignature=ee6c5162639632c5ec69c2b54d9d1af5 */}
                                 <div className={clsx('pt-4')}>
                                     <div className={clsx(styles.mainColor)}>
-                                        <span className="text-xl text-gray-900">Your Main Color: </span>
+                                        <span className="text-xl text-gray-900 min-w-[100px]">Your Main Color: </span>
                                         <input
                                             type="text"
                                             placeholder="Type here"
@@ -150,7 +163,7 @@ const Official = () => {
                 {/* -- Suggested Color -- */}
                 <div className={clsx(styles.suggested, 'text-gray-500 mt-8 w-full')}>
                     <h3 className="pt-8">Suggested Easy Complimentary Outfit Parings With:</h3>
-                    <SuggestedRadio {...colorItems} />
+                    {/* <SuggestedRadio {...colorItems} /> */}
                 </div>
             </main>
             <footer className="w-full flex h-[4.75rem] items-center justify-center space-x-3 font-medium text-gray-500 text-xl pb-10">

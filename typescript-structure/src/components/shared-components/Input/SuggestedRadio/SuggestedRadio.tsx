@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import styles from './SuggestedRadio.module.scss';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, memo } from 'react';
 import { IColorItems } from './SuggestedRadio.view-model';
 
 const SuggestedRadio = (colorItems: IColorItems) => {
@@ -9,16 +9,16 @@ const SuggestedRadio = (colorItems: IColorItems) => {
         liRef.current.forEach((li: HTMLLIElement) => {
             const label = li.getElementsByTagName('label')[0] as HTMLLabelElement;
             label.style.backgroundColor =
-                colorItems.colorArr.find((cl) => cl.id === label.htmlFor.slice(3))?.color || '';
+                colorItems.suggestColors.find((cl) => cl.id === label.htmlFor.slice(3))?.color || '';
         });
-    });
+    }, []);
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         liRef.current.forEach((li: HTMLLIElement) => {
             const input = li.getElementsByTagName('input')[0] as HTMLInputElement;
             const label = li.getElementsByTagName('label')[0] as HTMLLabelElement;
             if (input.checked) {
                 label.style.borderColor =
-                    colorItems.colorArr.find((cl) => cl.id === label.htmlFor.slice(3))?.borderColor || '';
+                    colorItems.suggestColors.find((cl) => cl.id === label.htmlFor.slice(3))?.borderColor || '';
             }
         });
     };
@@ -26,7 +26,7 @@ const SuggestedRadio = (colorItems: IColorItems) => {
     return (
         <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {/* sg: suggest color */}
-            {colorItems.colorArr.map((sg, index) => {
+            {colorItems.suggestColors.map((sg, index) => {
                 return (
                     <li key={sg.id} ref={(el) => (liRef.current[index] = el)}>
                         {
@@ -48,4 +48,4 @@ const SuggestedRadio = (colorItems: IColorItems) => {
     );
 };
 
-export default SuggestedRadio;
+export default memo(SuggestedRadio);

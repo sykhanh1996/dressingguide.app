@@ -16,18 +16,35 @@ const ColorRadio = (colorItems: IColorItems) => {
             setColorForParentComp(li, label);
         });
     });
-    const handleChangeRadio = () => {
-        liRef.current.forEach((li: HTMLLIElement) => {
-            const label = li.getElementsByTagName('label')[0] as HTMLLabelElement;
-            setColorForParentComp(li, label);
-        });
-    };
+    // const handleChangeRadio = () => {
+    //     liRef.current.forEach((li: HTMLLIElement) => {
+    //         const label = li.getElementsByTagName('label')[0] as HTMLLabelElement;
+    //         setColorForParentComp(li, label);
+    //     });
+    // };
     const setColorForParentComp = (li: HTMLLIElement, label: HTMLLabelElement) => {
         const input = li.getElementsByTagName('input')[0] as HTMLInputElement;
         if (input.checked && colorItems.setColorValue) {
             colorItems?.setColorValue(colorItems.colorArr.find((cl) => cl.id === label.htmlFor.slice(7))?.color || '');
+            //setSuggestColorItems(label);
         }
     };
+    const setSuggestColorItems = (label: HTMLLabelElement) => {
+        var htmlFor = label.htmlFor.slice(7) || '';
+        if (colorItems.setSuggestColors) {
+            switch (htmlFor) {
+                case 'sg-yellow': {
+                    colorItems?.setSuggestColors('sg-yellow');
+                    break;
+                }
+                default: {
+                    //statements;
+                    break;
+                }
+            }
+        }
+    };
+    console.log('render color radio');
     return (
         <ul className={clsx('flex')}>
             {colorItems.colorArr.map((cl, index) => {
@@ -39,7 +56,7 @@ const ColorRadio = (colorItems: IColorItems) => {
                                 id={'mainCl-' + cl.id}
                                 name="mainColor-radio"
                                 defaultChecked={index === 0}
-                                onChange={handleChangeRadio}
+                                //onChange={handleChangeRadio}
                             />
                             <label
                                 htmlFor={'mainCl-' + cl.id}
