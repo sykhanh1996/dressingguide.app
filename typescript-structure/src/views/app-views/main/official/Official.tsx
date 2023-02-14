@@ -199,7 +199,7 @@ const Official = () => {
 
                 {/* -- Suggested Color -- */}
                 <div className={clsx(styles.suggested, 'text-gray-500 mt-8 w-full')}>
-                    <h3 className="pt-8">Suggested Easy Complimentary Outfit Parings With:</h3>
+                    <h3 className="pt-8 pb-8">Suggested Easy Complimentary Outfit Parings With:</h3>
                     <SuggestedRadio suggestColors={suggestedColorItems} />
                 </div>
             </main>
