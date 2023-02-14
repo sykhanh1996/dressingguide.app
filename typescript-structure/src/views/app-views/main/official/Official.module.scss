@@ -1,0 +1,59 @@
+main {
+    padding: 5.6rem 1.6rem;
+
+    .header {
+        display: flex;
+        user-select: none;
+        align-items: flex-end;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 4rem;
+    }
+    .desc {
+        text-align: center;
+        font-size: 2rem;
+
+        a {
+            margin-left: 0.8rem;
+        }
+        span {
+            margin-left: 0.3rem;
+        }
+    }
+    .content {
+        max-width: 100%;
+        margin: auto;
+        margin-top: 3.2rem;
+    }
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 3rem 2rem;
+    }
+    .function {
+        padding: 0 1.6rem 3rem;
+
+        .breadcrumb {
+            margin: 1.6rem 0;
+        }
+
+        h2 {
+            font-size: 3rem;
+        }
+    }
+    .mainColor {
+        display: flex;
+        align-items: center;
+
+        span {
+            margin-right: 0.8rem;
+        }
+        .colorItem {
+            height: 2.4rem;
+            width: 2.4rem;
+            border-radius: 50%;
+            margin-left: 1.5rem;
+        }
+    }
+}
