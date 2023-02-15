@@ -2,15 +2,11 @@ import clsx from 'clsx';
 import styles from './SuggestedRadio.module.scss';
 import { useEffect, useRef, memo, useState } from 'react';
 import { IColorItem } from './SuggestedRadio.view-model';
-import Loading from '../../Loading/Loading';
 import { HiExclamation } from 'react-icons/hi';
 
 const SuggestedRadio = (props: any) => {
     const liRef = useRef<any>([]);
     const suggestColors = (props.suggestColors as IColorItem[]) || [];
-    // const [isLoading, setIsLoading] = useState(true);
-
-    // const setIntervalLoading = setTimeout(() => setIsLoading(false), 1000);
 
     useEffect(() => {
         if (liRef.current[0]) {
@@ -21,9 +17,7 @@ const SuggestedRadio = (props: any) => {
                 label.style.backgroundColor = suggestColors.find((cl) => cl.id === label.htmlFor.slice(3))?.color || '';
             });
         }
-        return () => {
-            // clearTimeout(setIntervalLoading);
-        };
+        return () => {};
     });
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         liRef.current.forEach((li: HTMLLIElement) => {
@@ -35,10 +29,6 @@ const SuggestedRadio = (props: any) => {
             }
         });
     };
-    console.log('Render SuggestedRadio');
-    // if (isLoading == true) {
-    //     return <Loading />;
-    // }
     if (suggestColors.length > 0) {
         return (
             <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">

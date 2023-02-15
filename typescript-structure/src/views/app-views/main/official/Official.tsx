@@ -1,4 +1,4 @@
-import { Fragment, memo, useState, useCallback, useRef } from 'react';
+import { Fragment, memo, useState, useCallback, useEffect } from 'react';
 import styles from './Official.module.scss';
 import clsx from 'clsx';
 import { FaVest, FaCommentDots } from 'react-icons/fa';
@@ -10,6 +10,7 @@ import SuggestedRadio from '@src/components/shared-components/Input/SuggestedRad
 import ColorRadio from '@src/components/shared-components/Input/ColorRadio/ColorRadio';
 import Breadcrumbs from '@src/components/shared-components/Breadcrumbs/Breadcrumbs';
 import ColorCode from '../ColorCode/ColorCode';
+import Loading from '@src/components/shared-components/Loading/Loading';
 
 const colorItemsArr: IColorItem[] = [
     {
@@ -57,12 +58,21 @@ let suggestColors: IColorItem[];
 
 const Official = () => {
     const [colorRadioCheckedValue, setColorRadioCheckedValue] = useState('');
+    // const [isLoading, setIsLoading] = useState(true);
 
     const [suggestedColorItems, setSuggestedColorItems] = useState(suggestColors);
     const setColorValue = useCallback((changeColorValue: any) => {
         setColorRadioCheckedValue(changeColorValue);
     }, []);
 
+    // useEffect(() => {
+    //     if (!isLoading) setIsLoading(true);
+    //     const setIntervalLoading = setTimeout(() => setIsLoading(false), 300);
+
+    //     return () => {
+    //         clearTimeout(setIntervalLoading);
+    //     };
+    // }, [colorRadioCheckedValue]);
     const setSuggestColors = useCallback((colorId: String) => {
         switch (colorId) {
             case 'sg-yellow': {
@@ -117,7 +127,6 @@ const Official = () => {
 
         setSuggestedColorItems(suggestColors);
     }, []);
-
     return (
         <Fragment>
             <main className="max-w-7xl min-h-[calc(100vh-4.75rem)] mx-auto py-14">
@@ -200,6 +209,7 @@ const Official = () => {
                 {/* -- Suggested Color -- */}
                 <div className={clsx(styles.suggested, 'text-gray-500 mt-8 w-full')}>
                     <h3 className="pt-8 pb-8">Suggested Easy Complimentary Outfit Parings With:</h3>
+                    {/* {(isLoading && <Loading />) || <SuggestedRadio suggestColors={suggestedColorItems} />} */}
                     <SuggestedRadio suggestColors={suggestedColorItems} />
                 </div>
             </main>
