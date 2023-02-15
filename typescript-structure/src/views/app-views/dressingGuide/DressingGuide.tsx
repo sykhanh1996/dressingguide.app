@@ -1,17 +1,24 @@
 import clsx from 'clsx';
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import { BsCheckAll } from 'react-icons/bs';
 import { FaCommentDots, FaVest } from 'react-icons/fa';
-import { HiCheck, HiExclamation, HiInformationCircle, HiMoon } from 'react-icons/hi';
+import { HiCheck, HiExclamation, HiInformationCircle, HiLink, HiMoon } from 'react-icons/hi';
 import { SiGithub } from 'react-icons/si';
 import BreadcrumbsGuide from './BreadcrumbsGuide/BreadcrumbsGuide';
 import styles from './DressingGuide.module.scss';
 import { DressingGuideData, IColorItem, SuggestData } from './DressingGuide.data';
 import { AiFillQuestionCircle } from 'react-icons/ai';
+import useCopyUrl from '@src/hooks/use-copy-url';
 
 const DressingGuide = () => {
     const liRadioColorRef = useRef<any>([]);
     const liSuggestColorRef = useRef<any>([]);
+
+    // When user click share, update the current URL and copy it to clipboard for sharing
+    const [hasCopiedUrl, copyUrl] = useCopyUrl();
+    const share = useCallback(() => {
+        copyUrl();
+    }, [copyUrl]);
 
     const [colorValueInput, setColorValueInput] = useState('');
     const [suggestedColorItems, setSuggestedColorItems] = useState(SuggestData);
@@ -162,14 +169,11 @@ const DressingGuide = () => {
                             <div>Color Combinations</div>
                         </div>
                         <div className={clsx(styles.endIcon)}>
-                            <div className="mr-4 text-gray-600 flex space-x-2 items-center">
+                            <div className="mr-4 text-gray-600 flex space-x-3 items-center">
                                 <button title="Toggle theme">
                                     <HiMoon />
                                 </button>
-                                <button title="See site's info">
-                                    <HiInformationCircle />
-                                </button>
-                                <div className="">
+                                <div>
                                     {/* The button to open modal */}
                                     <label htmlFor="my-modal" className="cursor-pointer">
                                         <AiFillQuestionCircle title="Website Information" />
@@ -195,6 +199,13 @@ const DressingGuide = () => {
                                         </div>
                                     </div>
                                 </div>
+                                <button
+                                    onClick={share}
+                                    title={hasCopiedUrl ? 'Copied' : 'Share'}
+                                    disabled={hasCopiedUrl}
+                                >
+                                    {hasCopiedUrl ? <HiCheck /> : <HiLink />}
+                                </button>
                             </div>
                         </div>
                     </div>
