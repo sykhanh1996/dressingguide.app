@@ -5,7 +5,7 @@ const Icon = <LoadingOutlined style={{ fontSize: 35 }} spin />;
 
 const LoadingFullScreen = () => {
     return (
-        <div className="mt-16 grid items-center justify-center">
+        <div className="grid h-screen place-items-center">
             <ImSpinner className="animate-spin" />
         </div>
     );

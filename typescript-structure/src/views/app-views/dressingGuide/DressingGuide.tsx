@@ -1,14 +1,114 @@
 import clsx from 'clsx';
-import { Fragment } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import { BsCheckAll } from 'react-icons/bs';
 import { FaCommentDots, FaVest } from 'react-icons/fa';
-import { HiCheck, HiInformationCircle, HiMoon } from 'react-icons/hi';
+import { HiCheck, HiExclamation, HiInformationCircle, HiMoon } from 'react-icons/hi';
 import { SiGithub } from 'react-icons/si';
 import BreadcrumbsGuide from './BreadcrumbsGuide/BreadcrumbsGuide';
 import styles from './DressingGuide.module.scss';
-import { DressingGuideData } from './DressingGuide.data';
+import { DressingGuideData, IColorItem, SuggestData } from './DressingGuide.data';
 
 const DressingGuide = () => {
+    const liRadioColorRef = useRef<any>([]);
+    const liSuggestColorRef = useRef<any>([]);
+
+    const [colorValueInput, setColorValueInput] = useState('');
+    const [suggestedColorItems, setSuggestedColorItems] = useState(SuggestData);
+
+    useEffect(() => {
+        liRadioColorRef.current.forEach((li: HTMLLIElement) => {
+            const label = li.getElementsByTagName('label')[0] as HTMLLabelElement;
+            label.style.backgroundColor = DressingGuideData.find((cl) => cl.id === label.htmlFor.slice(7))?.color || '';
+            label.style.outlineColor =
+                DressingGuideData.find((cl) => cl.id === label.htmlFor.slice(7))?.borderColor || '';
+            setValueColorInput(li);
+        });
+
+        return () => {};
+    }, []);
+
+    useEffect(() => {
+        if (liSuggestColorRef.current[0] != null) {
+            liSuggestColorRef.current.forEach((li: HTMLLIElement) => {
+                const label = li.getElementsByTagName('label')[0] as HTMLLabelElement;
+                const input = li.getElementsByTagName('input')[0] as HTMLInputElement;
+                input.checked = false;
+                label.style.backgroundColor =
+                    DressingGuideData.find((cl) => cl.id === label.htmlFor.slice(3))?.color || '';
+            });
+        }
+    }, [colorValueInput]);
+
+    const handleChangeRadio = () => {
+        liRadioColorRef.current.forEach((li: HTMLLIElement) => {
+            setValueColorInput(li);
+        });
+    };
+
+    const setValueColorInput = (li: HTMLLIElement) => {
+        const input = li.getElementsByTagName('input')[0] as HTMLInputElement;
+        const label = li.getElementsByTagName('label')[0] as HTMLLabelElement;
+        if (input.checked) {
+            setColorValueInput(DressingGuideData.find((cl) => cl.id === label.htmlFor.slice(7))?.color || '');
+            setSuggestColorsData(input.id.slice(7));
+        }
+    };
+
+    const setSuggestColorsData = (colorId: string) => {
+        var suggestColors: IColorItem[] = [];
+        switch (colorId) {
+            case 'sg-yellow': {
+                suggestColors = [
+                    {
+                        color: 'rgb(14 165 233)',
+                        id: 'sg-sky',
+                        colorName: 'sky',
+                        borderColor: 'rgb(56 189 248)',
+                    },
+                ];
+                break;
+            }
+            case 'sg-green': {
+                suggestColors = [
+                    {
+                        color: 'rgb(14 165 233)',
+                        id: 'sg-sky',
+                        colorName: 'sky',
+                        borderColor: 'rgb(56 189 248)',
+                    },
+                ];
+                break;
+            }
+            case 'sg-blue': {
+                suggestColors = [
+                    {
+                        color: 'rgb(239 68 68)',
+                        id: 'sg-red',
+                        colorName: 'red',
+                        borderColor: 'rgb(252 165 165)',
+                    },
+                ];
+                break;
+            }
+            case 'sg-red': {
+                suggestColors = [
+                    {
+                        color: 'rgb(107 114 128)',
+                        id: 'sg-gray',
+                        colorName: 'gray',
+                        borderColor: 'rgb(156 163 175)',
+                    },
+                ];
+                break;
+            }
+            default: {
+                suggestColors = [];
+                break;
+            }
+        }
+
+        setSuggestedColorItems(suggestColors);
+    };
     return (
         <Fragment>
             <main className="max-w-7xl min-h-[calc(100vh-4.75rem)] mx-auto py-14">
@@ -79,14 +179,14 @@ const DressingGuide = () => {
                                             type="text"
                                             placeholder="Type here"
                                             className="input input-bordered input-md w-full max-w-xs text-xl"
-                                            // value={props.colorRadioCheckedValue}
+                                            value={colorValueInput}
                                             readOnly
                                         />
 
                                         <ul className={clsx('flex')}>
                                             {DressingGuideData.map((cl, index) => {
                                                 return (
-                                                    <li key={cl.id}>
+                                                    <li key={cl.id} ref={(el) => (liRadioColorRef.current[index] = el)}>
                                                         <div
                                                             className={clsx(
                                                                 styles.selectColor,
@@ -98,7 +198,7 @@ const DressingGuide = () => {
                                                                 id={'mainCl-' + cl.id}
                                                                 name="mainColor-radio"
                                                                 defaultChecked={index === 0}
-                                                                // onChange={handleChangeRadio}
+                                                                onChange={handleChangeRadio}
                                                             />
                                                             <label
                                                                 htmlFor={'mainCl-' + cl.id}
@@ -119,34 +219,48 @@ const DressingGuide = () => {
                 {/* -- Suggested Color -- */}
                 <div className={clsx(styles.suggested, 'text-gray-500 mt-8 w-full')}>
                     <h3 className="pt-8 pb-8">Suggested Easy Complimentary Outfit Parings With:</h3>
-                    <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        {/* sg: suggest color */}
-                        {DressingGuideData.map((sg, index) => {
-                            return (
-                                <li key={sg.id}>
-                                    {
-                                        <div className={clsx(styles.suggestedItem, 'flex items-center justify-center')}>
-                                            <input
-                                                type="radio"
-                                                id={'sg-' + sg.id}
-                                                name="suggested-color"
-                                                // onChange={handleChange}
-                                            />
-                                            <label
-                                                htmlFor={'sg-' + sg.id}
-                                                className={
-                                                    'grid place-items-center hover:scale-110 shadow-md labelColor'
-                                                }
+                    {(suggestedColorItems.length > 0 && (
+                        <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                            {/* sg: suggest color */}
+                            {suggestedColorItems.map((sg, index) => {
+                                return (
+                                    <li key={sg.id} ref={(el) => (liSuggestColorRef.current[index] = el)}>
+                                        {
+                                            <div
+                                                className={clsx(
+                                                    styles.suggestedItem,
+                                                    'flex items-center justify-center',
+                                                )}
                                             >
-                                                {/* capitalize the first letter */}
-                                                {sg.colorName.charAt(0).toUpperCase() + sg.colorName.slice(1)}
-                                            </label>
-                                        </div>
-                                    }
-                                </li>
-                            );
-                        })}
-                    </ul>
+                                                <input
+                                                    type="radio"
+                                                    id={'sg-' + sg.id}
+                                                    name="suggested-color"
+                                                    // onChange={handleChange}
+                                                />
+                                                <label
+                                                    htmlFor={'sg-' + sg.id}
+                                                    className={
+                                                        'grid place-items-center hover:scale-110 shadow-md labelColor'
+                                                    }
+                                                >
+                                                    {/* capitalize the first letter */}
+                                                    {sg.colorName.charAt(0).toUpperCase() + sg.colorName.slice(1)}
+                                                </label>
+                                            </div>
+                                        }
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    )) || (
+                        <div className="alert alert-warning bg-yellow-50">
+                            <div>
+                                <HiExclamation color="#eab308" size="1.3em" className="mt-1 mr-2" />
+                                <span className="text-yellow-700">No results were found!</span>
+                            </div>
+                        </div>
+                    )}
                 </div>
             </main>
             <footer className="w-full flex h-[4.75rem] items-center justify-center space-x-3 font-medium text-gray-500 text-xl pb-10">

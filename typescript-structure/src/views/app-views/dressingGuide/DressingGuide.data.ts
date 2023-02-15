@@ -43,3 +43,5 @@ export const DressingGuideData: IColorItem[] = [
         borderColor: 'rgb(156 163 175)',
     },
 ];
+
+export const SuggestData: IColorItem[] = [];
