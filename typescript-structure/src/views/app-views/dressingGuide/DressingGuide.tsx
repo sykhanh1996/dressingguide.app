@@ -7,6 +7,7 @@ import { SiGithub } from 'react-icons/si';
 import BreadcrumbsGuide from './BreadcrumbsGuide/BreadcrumbsGuide';
 import styles from './DressingGuide.module.scss';
 import { DressingGuideData, IColorItem, SuggestData } from './DressingGuide.data';
+import { AiFillQuestionCircle } from 'react-icons/ai';
 
 const DressingGuide = () => {
     const liRadioColorRef = useRef<any>([]);
@@ -42,6 +43,17 @@ const DressingGuide = () => {
     const handleChangeRadio = () => {
         liRadioColorRef.current.forEach((li: HTMLLIElement) => {
             setValueColorInput(li);
+        });
+    };
+
+    const handleChangeSuggestion = () => {
+        liSuggestColorRef.current.forEach((li: HTMLLIElement) => {
+            const input = li.getElementsByTagName('input')[0] as HTMLInputElement;
+            const label = li.getElementsByTagName('label')[0] as HTMLLabelElement;
+            if (input.checked) {
+                label.style.borderColor =
+                    suggestedColorItems.find((cl) => cl.id === label.htmlFor.slice(3))?.borderColor || '';
+            }
         });
     };
 
@@ -157,9 +169,32 @@ const DressingGuide = () => {
                                 <button title="See site's info">
                                     <HiInformationCircle />
                                 </button>
-                                <button>
-                                    <HiCheck />
-                                </button>
+                                <div className="">
+                                    {/* The button to open modal */}
+                                    <label htmlFor="my-modal" className="cursor-pointer">
+                                        <AiFillQuestionCircle title="Website Information" />
+                                    </label>
+
+                                    {/* Put this part before </body> tag */}
+                                    <input type="checkbox" id="my-modal" className="modal-toggle" />
+                                    <div className="modal">
+                                        <div className="modal-box">
+                                            <h3 className="font-bold text-2xl text-center">Author</h3>
+                                            <p className="py-4">
+                                                <span className="text-gray-600 font-medium">DressingGuide.Info</span>{' '}
+                                                was made by Khanh-Nguyen Sy while working at Nash.
+                                            </p>
+                                            <div className="modal-action">
+                                                <label
+                                                    htmlFor="my-modal"
+                                                    className="btn text-2xl text-gray-500 bg-gradient-to-r from-blue-400 to-cyan-500 w-full shadow-sm border border-transparent hover:border-none"
+                                                >
+                                                    Yay!
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -236,7 +271,7 @@ const DressingGuide = () => {
                                                     type="radio"
                                                     id={'sg-' + sg.id}
                                                     name="suggested-color"
-                                                    // onChange={handleChange}
+                                                    onChange={handleChangeSuggestion}
                                                 />
                                                 <label
                                                     htmlFor={'sg-' + sg.id}
