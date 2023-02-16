@@ -11,7 +11,6 @@ export default function useCopyUrl(): [boolean, () => void] {
 
     // Clear "Copied" after 3 seconds
     useEffect(() => {
-        console.log('render useCopyUrl');
         if (!hasCopied) return;
         const timeoutId = window.setTimeout(() => setHasCopied(false), 3000);
         return () => window.clearTimeout(timeoutId);

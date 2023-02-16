@@ -87,13 +87,13 @@ const DressingGuide = () => {
                         <FaVest className="mr-2" size="1.2em" />
                         <div className="max-h-[47px]">
                             <span>DressingGuide</span>
-                            <span>.</span>
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-blue-600">
+                            <span className="sm:inline hidden">.</span>
+                            <span className="sm:inline hidden bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-blue-600">
                                 Info?
                             </span>
                         </div>
                         <a
-                            className="text-gray-500 hover:text-gray-600 "
+                            className="text-gray-500 hover:text-gray-600 pl-1"
                             href="https://github.com/sykhanh1996/DressingGuide"
                             rel="noopener noreferrer"
                             target="_blank"
@@ -172,40 +172,47 @@ const DressingGuide = () => {
                                 {/* https://www.pinterest.com/pin/604186106279845396/visual-search/?imageSignature=ee6c5162639632c5ec69c2b54d9d1af5 */}
                                 <div className={clsx('pt-4')}>
                                     <div className={clsx(styles.mainColor)}>
-                                        <span className="text-xl text-gray-900 min-w-[100px]">Your Main Color: </span>
+                                        <span className="text-xl text-gray-900 sm:min-w-[100px] min-w-[33px]">
+                                            Your Main Color:{' '}
+                                        </span>
                                         <input
                                             type="text"
                                             placeholder="Type here"
-                                            className="input input-bordered input-md w-full max-w-xs text-xl"
+                                            className="input input-bordered input-md w-full max-w-xs text-xl min-w-[65px]"
                                             value={colorValueInput}
                                             readOnly
                                         />
 
                                         <ul className={clsx('flex')}>
-                                            {DressingGuideData.map((cl, index) => {
-                                                return (
-                                                    <li key={cl.id} ref={(el) => (liRadioColorRef.current[index] = el)}>
-                                                        <div
-                                                            className={clsx(
-                                                                styles.selectColor,
-                                                                'flex items-center justify-center',
-                                                            )}
+                                            <div className="grid sm:grid-rows-1 grid-rows-3 grid-flow-col gap-y-3">
+                                                {DressingGuideData.map((cl, index) => {
+                                                    return (
+                                                        <li
+                                                            key={cl.id}
+                                                            ref={(el) => (liRadioColorRef.current[index] = el)}
                                                         >
-                                                            <input
-                                                                type="radio"
-                                                                id={'mainCl-' + cl.id}
-                                                                name="mainColor-radio"
-                                                                defaultChecked={index === 0}
-                                                                onChange={handleChangeRadio}
-                                                            />
-                                                            <label
-                                                                htmlFor={'mainCl-' + cl.id}
-                                                                className="grid place-items-center shadow-md cursor-pointer"
-                                                            ></label>
-                                                        </div>
-                                                    </li>
-                                                );
-                                            })}
+                                                            <div
+                                                                className={clsx(
+                                                                    styles.selectColor,
+                                                                    'flex items-center justify-center',
+                                                                )}
+                                                            >
+                                                                <input
+                                                                    type="radio"
+                                                                    id={'mainCl-' + cl.id}
+                                                                    name="mainColor-radio"
+                                                                    defaultChecked={index === 0}
+                                                                    onChange={handleChangeRadio}
+                                                                />
+                                                                <label
+                                                                    htmlFor={'mainCl-' + cl.id}
+                                                                    className="grid place-items-center shadow-md cursor-pointer"
+                                                                ></label>
+                                                            </div>
+                                                        </li>
+                                                    );
+                                                })}
+                                            </div>
                                         </ul>
                                     </div>
                                 </div>
@@ -218,7 +225,7 @@ const DressingGuide = () => {
                 <div className={clsx(styles.suggested, 'text-gray-500 mt-8 w-full')}>
                     <h3 className="pt-8 pb-8">Suggested Easy Complimentary Outfit Parings With:</h3>
                     {(suggestedColorItems.length > 0 && (
-                        <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                        <ul className="mt-4 grid grid-cols-2 gap-4">
                             {/* sg: suggest color */}
                             {suggestedColorItems.map((sg, index) => {
                                 return (
