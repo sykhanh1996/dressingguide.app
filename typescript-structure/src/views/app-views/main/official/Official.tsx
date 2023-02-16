@@ -14,6 +14,13 @@ import Loading from '@src/components/shared-components/Loading/Loading';
 
 const colorItemsArr: IColorItem[] = [
     {
+        color: 'white',
+        id: 'sg-white',
+        colorName: 'white',
+        borderColor: 'white',
+    },
+
+    {
         color: 'rgb(34 197 94)',
         id: 'sg-green',
         colorName: 'green',

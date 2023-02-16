@@ -9,6 +9,7 @@ import styles from './DressingGuide.module.scss';
 import { DressingGuideData, IColorItem, SuggestData } from './DressingGuide.data';
 import { AiFillQuestionCircle } from 'react-icons/ai';
 import useCopyUrl from '@src/hooks/use-copy-url';
+import { suggestionColor } from '@src/helpers/suggestionColors';
 
 const DressingGuide = () => {
     const liRadioColorRef = useRef<any>([]);
@@ -37,13 +38,15 @@ const DressingGuide = () => {
 
     useEffect(() => {
         if (liSuggestColorRef.current[0] != null) {
-            liSuggestColorRef.current.forEach((li: HTMLLIElement) => {
-                const label = li.getElementsByTagName('label')[0] as HTMLLabelElement;
-                const input = li.getElementsByTagName('input')[0] as HTMLInputElement;
-                input.checked = false;
-                label.style.backgroundColor =
-                    DressingGuideData.find((cl) => cl.id === label.htmlFor.slice(3))?.color || '';
-            });
+            for (let i = 0; i < liSuggestColorRef.current.length; i++) {
+                if (liSuggestColorRef.current[i] != null) {
+                    const label = liSuggestColorRef.current[i].getElementsByTagName('label')[0] as HTMLLabelElement;
+                    const input = liSuggestColorRef.current[i].getElementsByTagName('input')[0] as HTMLInputElement;
+                    input.checked = false;
+                    label.style.backgroundColor =
+                        DressingGuideData.find((cl) => cl.id === label.htmlFor.slice(3))?.color || '';
+                }
+            }
         }
     }, [colorValueInput]);
 
@@ -54,80 +57,27 @@ const DressingGuide = () => {
     };
 
     const handleChangeSuggestion = () => {
-        liSuggestColorRef.current.forEach((li: HTMLLIElement) => {
-            const input = li.getElementsByTagName('input')[0] as HTMLInputElement;
-            const label = li.getElementsByTagName('label')[0] as HTMLLabelElement;
-            if (input.checked) {
-                label.style.borderColor =
-                    suggestedColorItems.find((cl) => cl.id === label.htmlFor.slice(3))?.borderColor || '';
+        for (let i = 0; i < liSuggestColorRef.current.length; i++) {
+            if (liSuggestColorRef.current[i] != null) {
+                const input = liSuggestColorRef.current[i].getElementsByTagName('input')[0] as HTMLInputElement;
+                const label = liSuggestColorRef.current[i].getElementsByTagName('label')[0] as HTMLLabelElement;
+                if (input.checked) {
+                    label.style.borderColor =
+                        suggestedColorItems.find((cl) => cl.id === label.htmlFor.slice(3))?.borderColor || '';
+                }
             }
-        });
+        }
     };
 
     const setValueColorInput = (li: HTMLLIElement) => {
         const input = li.getElementsByTagName('input')[0] as HTMLInputElement;
         const label = li.getElementsByTagName('label')[0] as HTMLLabelElement;
         if (input.checked) {
-            setColorValueInput(DressingGuideData.find((cl) => cl.id === label.htmlFor.slice(7))?.color || '');
-            setSuggestColorsData(input.id.slice(7));
+            setColorValueInput(DressingGuideData.find((cl) => cl.id === label.htmlFor.slice(7))?.colorName || '');
+            setSuggestedColorItems(suggestionColor(input.id.slice(7)));
         }
     };
 
-    const setSuggestColorsData = (colorId: string) => {
-        var suggestColors: IColorItem[] = [];
-        switch (colorId) {
-            case 'sg-yellow': {
-                suggestColors = [
-                    {
-                        color: 'rgb(14 165 233)',
-                        id: 'sg-sky',
-                        colorName: 'sky',
-                        borderColor: 'rgb(56 189 248)',
-                    },
-                ];
-                break;
-            }
-            case 'sg-green': {
-                suggestColors = [
-                    {
-                        color: 'rgb(14 165 233)',
-                        id: 'sg-sky',
-                        colorName: 'sky',
-                        borderColor: 'rgb(56 189 248)',
-                    },
-                ];
-                break;
-            }
-            case 'sg-blue': {
-                suggestColors = [
-                    {
-                        color: 'rgb(239 68 68)',
-                        id: 'sg-red',
-                        colorName: 'red',
-                        borderColor: 'rgb(252 165 165)',
-                    },
-                ];
-                break;
-            }
-            case 'sg-red': {
-                suggestColors = [
-                    {
-                        color: 'rgb(107 114 128)',
-                        id: 'sg-gray',
-                        colorName: 'gray',
-                        borderColor: 'rgb(156 163 175)',
-                    },
-                ];
-                break;
-            }
-            default: {
-                suggestColors = [];
-                break;
-            }
-        }
-
-        setSuggestedColorItems(suggestColors);
-    };
     return (
         <Fragment>
             <main className="max-w-7xl min-h-[calc(100vh-4.75rem)] mx-auto py-14">
@@ -142,7 +92,12 @@ const DressingGuide = () => {
                                 Info?
                             </span>
                         </div>
-                        <a className="text-gray-500 hover:text-gray-600 " href="#!" rel="noopener noreferrer">
+                        <a
+                            className="text-gray-500 hover:text-gray-600 "
+                            href="https://github.com/sykhanh1996/DressingGuide"
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
                             <SiGithub size={18} />
                         </a>
                     </h1>
@@ -170,9 +125,6 @@ const DressingGuide = () => {
                         </div>
                         <div className={clsx(styles.endIcon)}>
                             <div className="mr-4 text-gray-600 flex space-x-3 items-center">
-                                <button title="Toggle theme">
-                                    <HiMoon />
-                                </button>
                                 <div>
                                     {/* The button to open modal */}
                                     <label htmlFor="my-modal" className="cursor-pointer">
@@ -286,9 +238,8 @@ const DressingGuide = () => {
                                                 />
                                                 <label
                                                     htmlFor={'sg-' + sg.id}
-                                                    className={
-                                                        'grid place-items-center hover:scale-110 shadow-md labelColor'
-                                                    }
+                                                    id={'label-sg-' + sg.id}
+                                                    className={'grid place-items-center hover:scale-110 shadow-md'}
                                                 >
                                                     {/* capitalize the first letter */}
                                                     {sg.colorName.charAt(0).toUpperCase() + sg.colorName.slice(1)}

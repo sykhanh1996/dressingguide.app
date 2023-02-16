@@ -46,7 +46,7 @@ const SuggestedRadio = (props: any) => {
                                     />
                                     <label
                                         htmlFor={'sg-' + sg.id}
-                                        className={'grid place-items-center hover:scale-110 shadow-md labelColor'}
+                                        className={'grid place-items-center hover:scale-110 shadow-md '}
                                     >
                                         {/* capitalize the first letter */}
                                         {sg.colorName.charAt(0).toUpperCase() + sg.colorName.slice(1)}
