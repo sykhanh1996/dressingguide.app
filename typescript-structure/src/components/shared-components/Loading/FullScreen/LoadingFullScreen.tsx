@@ -3,12 +3,12 @@ import { ImSpinner } from 'react-icons/im';
 
 const Icon = <LoadingOutlined style={{ fontSize: 35 }} spin />;
 
-const Loading = () => {
+const LoadingFullScreen = () => {
     return (
-        <div className="mt-16 flex items-center justify-center">
+        <div className="grid h-screen place-items-center">
             <ImSpinner className="animate-spin" />
         </div>
     );
 };
 
-export default Loading;
+export default LoadingFullScreen;

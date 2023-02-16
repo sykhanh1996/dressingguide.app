@@ -1,0 +1,114 @@
+main {
+    padding: 5.6rem 1.6rem;
+
+    .header {
+        display: flex;
+        user-select: none;
+        align-items: flex-end;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 4rem;
+    }
+    .desc {
+        text-align: center;
+        font-size: 2rem;
+
+        a {
+            margin-left: 0.8rem;
+        }
+        span {
+            margin-left: 0.3rem;
+        }
+    }
+    .content {
+        max-width: 100%;
+        margin: auto;
+        margin-top: 3.2rem;
+    }
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 3rem 2rem;
+    }
+    .function {
+        padding: 0 1.6rem 3rem;
+
+        .breadcrumb {
+            margin: 1.6rem 0;
+        }
+
+        h2 {
+            font-size: 3rem;
+        }
+    }
+    .mainColor {
+        display: flex;
+        align-items: center;
+
+        span {
+            margin-right: 0.8rem;
+        }
+        .colorItem {
+            height: 2.4rem;
+            width: 2.4rem;
+            border-radius: 50%;
+            margin-left: 1.5rem;
+        }
+    }
+
+    .selectColor {
+        input {
+            position: absolute !important;
+            clip: rect(0, 0, 0, 0);
+            height: 1px;
+            width: 1px;
+            border: 0;
+            overflow: hidden;
+        }
+        label {
+            height: 2.4rem;
+            width: 2.4rem;
+            border-radius: 50%;
+            margin-left: 1.5rem;
+        }
+        input:checked + label {
+            outline-width: 4px;
+            outline-style: solid;
+            outline-offset: 1px;
+        }
+    }
+
+    .suggestedItem {
+        input {
+            position: absolute !important;
+            clip: rect(0, 0, 0, 0);
+            height: 1px;
+            width: 1px;
+            border: 0;
+            overflow: hidden;
+        }
+        label {
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 14px;
+            line-height: 1;
+            text-align: center;
+            padding: 8px 16px;
+            //border: 1px solid rgba(0, 0, 0, 0.2);
+            //box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+            transition: all 0.1s ease-in-out;
+            min-height: 8rem;
+            min-width: 12rem;
+            margin: 0 0 1.5rem 0;
+            border-radius: 1.6rem;
+        }
+        label:hover {
+            cursor: pointer;
+            //transform: scale(1.1);
+        }
+        input:checked + label {
+            border-width: 4px;
+            transform: scale(1.1);
+        }
+    }
+}

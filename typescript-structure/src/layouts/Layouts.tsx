@@ -1,4 +1,4 @@
-import Loading from '@src/components/shared-components/Loading/Loading';
+import LoadingFullScreen from '@src/components/shared-components/Loading/FullScreen/LoadingFullScreen';
 import { Views } from '@src/views/Views';
 import { lazy, Suspense } from 'react';
 
@@ -12,7 +12,7 @@ export const Layouts = () => {
     const Layout = AppLayout;
 
     return (
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<LoadingFullScreen />}>
             <Layout>
                 <Views />
             </Layout>
