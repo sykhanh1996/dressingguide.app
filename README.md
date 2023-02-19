@@ -1,75 +1,46 @@
-# Getting Started with Create React App
+# dressingguide.site
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Guide to choosing the right clothes color
 
-## Available Scripts
+## Contributing
 
-In the project directory, you can run:
+### Requirements
 
-### `yarn start`
+-   Node 16+
+-   Yarn 1.22+
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Setup
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Install requirements
 
-### `yarn test`
+2. Clone repository
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. Run yarn to install dependencies
 
-### `yarn build`
+### Developed
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Tech stack
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+-   Typescript
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-   React
 
-### `yarn eject`
+-   Tailwind CSS
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Start development
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+-   Run yarn install to build node_modules for project
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+-   Run yarn start to start development
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+-   Submit a PR and make sure required status checks pass
 
-## Learn More
+-   When a PR is merged or code is pushed to `main`:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    -   Vercel deploys latest changes to [dressingguide.site](https://dessingguide.how)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    -   Github validates and creates a new release if there're relevant changes
 
-## Add lib
+## Author
 
-yarn add customize-cra react-app-rewired --dev
-
-yarn add --dev babel-plugin-module-resolver
-
-yarn add react-router
-yarn add @types/react-router
-yarn add react-router-dom
-yarn add @types/react-router-dom
-
-yarn add -D sass
-yarn add normalize.css
-
-yarn add history
-yarn add @types/history
-yarn add antd
-yarn add @ant-design/icons
-
-yarn add react-dotenv
-
-yarn add clsx
-
-yarn add -D tailwindcss
-npx tailwindcss init
-
-yarn add react-icons
-(daisyUI)
+Sy-Khanh Nguyen ([@sykhanh1996](https://twitter.com/sykhanh1996))
