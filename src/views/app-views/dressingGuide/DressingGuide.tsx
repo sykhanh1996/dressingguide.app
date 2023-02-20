@@ -89,7 +89,7 @@ const DressingGuide = () => {
                             <span>DressingGuide</span>
                             <span className="sm:inline hidden">.</span>
                             <span className="sm:inline hidden bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-blue-600">
-                                Info?
+                                Site?
                             </span>
                         </div>
                         <a
