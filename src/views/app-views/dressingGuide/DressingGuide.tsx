@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
+import { Fragment, Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { BsCheckAll } from 'react-icons/bs';
 import { FaCommentDots, FaVest } from 'react-icons/fa';
 import { HiCheck, HiExclamation, HiInformationCircle, HiLink, HiMoon } from 'react-icons/hi';
@@ -10,6 +10,7 @@ import { DressingGuideData, IColorItem, SuggestData } from './DressingGuide.data
 import { AiFillQuestionCircle } from 'react-icons/ai';
 import useCopyUrl from '@src/hooks/use-copy-url';
 import { suggestionColor } from '@src/helpers/suggestionColors';
+import Loading from '@src/components/shared-components/Loading/Loading';
 
 const DressingGuide = () => {
     const liRadioColorRef = useRef<any>([]);
@@ -109,7 +110,7 @@ const DressingGuide = () => {
                         Do you struggle to put together an outfit? Learn how to match clothes because it’ll make it
                         easier for you to know what to
                     </span>
-                    <a href="#!" rel="noopener noreferrer" className="inline-flex items-center space-x-1">
+                    <a href="/" rel="noopener noreferrer" className="inline-flex items-center space-x-1">
                         <FaVest aria-hidden />
                         <span className="font-medium text-gray-800 hover:text-black dark:text-gray-200">Wear</span>
                         <BsCheckAll aria-hidden />
@@ -173,7 +174,7 @@ const DressingGuide = () => {
                                 <div className={clsx('pt-4')}>
                                     <div className={clsx(styles.mainColor)}>
                                         <span className="text-xl text-gray-900 sm:min-w-[100px] min-w-[33px]">
-                                            Your Main Color:{' '}
+                                            Your Main Color:
                                         </span>
                                         <input
                                             type="text"
@@ -220,7 +221,6 @@ const DressingGuide = () => {
                         </section>
                     </div>
                 </div>
-
                 {/* -- Suggested Color -- */}
                 <div className={clsx(styles.suggested, 'text-gray-500 mt-8 w-full')}>
                     <h3 className="pt-8 pb-8">Suggested Easy Complimentary Outfit Parings With:</h3>
@@ -279,7 +279,12 @@ const DressingGuide = () => {
                         href="!#"
                         className="flex justify-center text-md font-light items-center cursor-pointer hover:text-gray-800 pt-2"
                     >
-                        Send feedback <FaCommentDots className="ml-2 mb-2" size="1.2em" />
+                        Send feedback
+                        <FaCommentDots
+                            href="https://github.com/sykhanh1996/DressingGuide"
+                            className="ml-2 mb-2"
+                            size="1.2em"
+                        />
                     </a>
                 </div>
             </footer>
