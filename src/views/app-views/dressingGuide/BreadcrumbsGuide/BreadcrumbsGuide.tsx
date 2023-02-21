@@ -1,8 +1,10 @@
+import { Link } from 'react-router-dom';
+
 const BreadcrumbsGuide = () => {
     return (
         <ul>
             <li>
-                <a href="!#">
+                <Link to="/" title="Basic demo">
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -17,7 +19,7 @@ const BreadcrumbsGuide = () => {
                         ></path>
                     </svg>
                     Home
-                </a>
+                </Link>
             </li>
             <li>
                 <svg

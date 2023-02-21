@@ -77,7 +77,7 @@ export const DressingGuideData: IColorItem[] = [
     {
         color: '#ef4444',
         id: 'red',
-        colorName: 'red',
+        colorName: 'Red',
         borderColor: '#f87171',
     },
     {

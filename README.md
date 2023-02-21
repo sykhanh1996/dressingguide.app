@@ -27,6 +27,8 @@ Guide to choosing the right clothes color
 
 -   Tailwind CSS
 
+-   DaisyUI
+
 #### Start development
 
 -   Run yarn install to build node_modules for project
