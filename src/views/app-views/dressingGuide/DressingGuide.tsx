@@ -267,6 +267,20 @@ const DressingGuide = () => {
                     )}
                 </div>
             </main>
+            <div className="flex w-screen justify-center mb-8">
+                <a
+                    href="https://www.producthunt.com/posts/dressing-guide?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-dressing&#0045;guide"
+                    target="_blank"
+                >
+                    <img
+                        src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=380787&theme=light"
+                        alt="Dressing&#0032;Guide - dessingguide | Product Hunt"
+                        style={{ width: '250px', height: '54px' }}
+                        width="250"
+                        height="54"
+                    />
+                </a>
+            </div>
             <footer className="w-full flex h-[4.75rem] items-center justify-center space-x-3 font-medium text-gray-500 text-xl pb-10">
                 <div className="flex-col">
                     <div className="space-x-1 ">
@@ -275,6 +289,7 @@ const DressingGuide = () => {
                             @sykhanh1996
                         </a>
                     </div>
+
                     <a
                         href="https://github.com/sykhanh1996/dressingguide.site/issues"
                         className="flex justify-center text-md font-light items-center cursor-pointer hover:text-gray-800 pt-2"
