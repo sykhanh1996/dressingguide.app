@@ -138,7 +138,7 @@ const DressingGuide = () => {
                                         <div className="modal-box">
                                             <h3 className="font-bold text-2xl text-center">Author</h3>
                                             <p className="py-4">
-                                                <span className="text-gray-600 font-medium">DressingGuide.Info</span>{' '}
+                                                <span className="text-gray-600 font-medium">DressingGuide.Site</span>
                                                 was made by Khanh-Nguyen Sy while working at Nash.
                                             </p>
                                             <div className="modal-action">
@@ -271,12 +271,12 @@ const DressingGuide = () => {
                 <div className="flex-col">
                     <div className="space-x-1 ">
                         Made with <span className="opacity-40">❤</span> by
-                        <a href="!#" className="hover:text-gray-800 cursor-pointer">
+                        <a href="https://twitter.com/sykhanh1996" className="hover:text-gray-800 cursor-pointer">
                             @sykhanh1996
                         </a>
                     </div>
                     <a
-                        href="!#"
+                        href="https://github.com/sykhanh1996/dressingguide.site/issues"
                         className="flex justify-center text-md font-light items-center cursor-pointer hover:text-gray-800 pt-2"
                     >
                         Send feedback
