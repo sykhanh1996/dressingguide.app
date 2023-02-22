@@ -31,9 +31,9 @@ Guide to choosing the right clothes color
 
 #### Start development
 
--   Run yarn install to build node_modules for project
+-   Run `yarn install` to build node_modules for project
 
--   Run yarn start to start development
+-   Run `yarn start` to start development
 
 -   Submit a PR and make sure required status checks pass
 
