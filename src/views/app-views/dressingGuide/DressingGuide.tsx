@@ -90,7 +90,7 @@ const DressingGuide = () => {
                             <span>DressingGuide</span>
                             <span className="sm:inline hidden">.</span>
                             <span className="sm:inline hidden bg-clip-text text-transparent bg-gradient-to-r from-sky-500 to-blue-600">
-                                Site?
+                                App?
                             </span>
                         </div>
                         <a
@@ -138,7 +138,7 @@ const DressingGuide = () => {
                                         <div className="modal-box">
                                             <h3 className="font-bold text-2xl text-center">Author</h3>
                                             <p className="py-4">
-                                                <span className="text-gray-600 font-medium">DressingGuide.Site</span>
+                                                <span className="text-gray-600 font-medium">DressingGuide.App </span>
                                                 was made by Khanh-Nguyen Sy while working at Nash.
                                             </p>
                                             <div className="modal-action">
