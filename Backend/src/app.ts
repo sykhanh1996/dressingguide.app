@@ -1,5 +1,6 @@
 import { Route } from "core/interfaces";
 import express from "express";
+import mongoose from "mongoose";
 class App {
   public app: express.Application;
   public port: string | number;
@@ -21,6 +22,17 @@ class App {
     routes.forEach((route) => {
       this.app.use("/", route.router);
     });
+  }
+
+  private connectToDatabase() {
+    try {
+      const connectionString =
+        "mongodb+srv://sa:Admin@123@master.yujmxtz.mongodb.net/?retryWrites=true&w=majority";
+      mongoose.connect("mongodb://127.0.0.1/my_database");
+      console.log("Database connected...");
+    } catch (error) {
+      console.log(`Connect to database error`);
+    }
   }
 }
 
