@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { IndexRoute } from "./module/index";
 import App from "./app";
 
