@@ -6,6 +6,7 @@ import morgan from "morgan";
 import cors from "cors";
 import helmet from "helmet";
 import { Logger } from "@core/utils";
+import { errorMiddleware } from "@core/middleware";
 
 class App {
   public app: express.Application;
@@ -54,6 +55,8 @@ class App {
         })
       );
     }
+
+    this.app.use(errorMiddleware);
   }
 
   private connectToDatabase() {
