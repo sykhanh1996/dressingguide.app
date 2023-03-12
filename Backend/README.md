@@ -8,3 +8,6 @@
 - yarn add cross-env --dev
 - yarn add hpp helmet morgan cors
 - yarn add @types/hpp @types/morgan @types/cors --dev
+- yarn add winston
+- yarn add envalid
+- yarn add --dev tsconfig-paths
