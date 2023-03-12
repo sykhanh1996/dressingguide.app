@@ -5,6 +5,7 @@ import hpp from "hpp";
 import morgan from "morgan";
 import cors from "cors";
 import helmet from "helmet";
+import { Logger } from "./core/utils";
 
 class App {
   public app: express.Application;
@@ -18,11 +19,12 @@ class App {
 
     this.initializeRoutes(routes);
     this.connectToDatabase();
+    this.initializeMiddleware();
   }
 
   public listen() {
     this.app.listen(this.port, () => {
-      console.log(`Server is listening on port ${this.port}`);
+      Logger.info(`Server is listening on port ${this.port}`);
     });
   }
 
@@ -32,7 +34,7 @@ class App {
     });
   }
 
-  private initializeMiddlewares() {
+  private initializeMiddleware() {
     if (this.production) {
       this.app.use(hpp());
       this.app.use(helmet());
@@ -58,11 +60,13 @@ class App {
     try {
       const connectionString = process.env.MONGODB_URI;
       if (!connectionString) {
-        console.log("Connection string is invalid");
+        Logger.error("Connection string is invalid");
         return;
       }
-      mongoose.connect(connectionString);
-      console.log("Database connected...");
+      mongoose.connect(connectionString).catch((reason) => {
+        Logger.error(reason);
+      });
+      Logger.info("Database connected...");
     } catch (error) {
       console.log(`Connect to database error`);
     }
