@@ -4,3 +4,7 @@
 - yarn add typescript nodemon ts-node --dev
 - yarn add mongoose
 - yarn add @types/mongoose --dev
+- yarn add dotenv
+- yarn add cross-env --dev
+- yarn add hpp helmet morgan cors
+- yarn add @types/hpp @types/morgan @types/cors --dev
