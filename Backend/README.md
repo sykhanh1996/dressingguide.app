@@ -11,3 +11,4 @@
 - yarn add winston
 - yarn add envalid
 - yarn add --dev tsconfig-paths
+  gravatar: service to get avatar
