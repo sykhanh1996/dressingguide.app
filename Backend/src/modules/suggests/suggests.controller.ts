@@ -13,8 +13,8 @@ export default class SuggestsController {
   ) => {
     try {
       const models: SuggestDto = req.body;
-      var test: ISuggest = await this.suggestService.getSuggest(models);
-      res.status(201).json(test);
+      var test2: ISuggest = await this.suggestService.getSuggest(models);
+      res.status(201).json(test2);
     } catch (error) {
       next(error);
     }
