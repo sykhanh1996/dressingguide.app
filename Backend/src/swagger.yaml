@@ -10,20 +10,20 @@ info:
     name: "MIT"
     url: "https://opensource.org/licenses/MIT"
 host: "localhost:5000"
-basePath: "/api/v1"
+basePath: "/api"
 tags:
   - name: "suggests"
     description: "Suggest APIs"
 schemes:
   - "http"
 paths:
-  /auth:
+  /suggests:
     post:
       tags:
-        - "auth"
-      summary: "Login API and get token"
-      description: "Input email and password"
-      operationId: "login"
+        - "suggests"
+      summary: "Suggests Color Content"
+      description: "Get Color Suggest Content"
+      operationId: "suggests"
       consumes:
         - "application/json"
       produces:
@@ -31,18 +31,18 @@ paths:
       parameters:
         - in: "body"
           name: "body"
-          description: "Login for user"
+          description: "Suggest Content For Color"
           required: true
           schema:
-            $ref: "#/definitions/LoginDto"
+            $ref: "#/definitions/SuggestDto"
       responses:
         "400":
           description: "Invalid input"
 definitions:
-  LoginDto:
+  SuggestDto:
     type: "object"
     properties:
-      email:
+      colorId:
         type: "string"
-      password:
+      content:
         type: "string"

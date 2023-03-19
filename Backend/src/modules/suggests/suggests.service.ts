@@ -8,8 +8,8 @@ export default class SuggestService {
 
   public async getSuggest(model: SuggestDto): Promise<ISuggest> {
     return {
-      colorId: "",
-      content: "",
+      colorId: "2",
+      content: "2",
     };
   }
 }
