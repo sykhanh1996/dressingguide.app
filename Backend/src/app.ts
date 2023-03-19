@@ -81,7 +81,6 @@ class App {
       Logger.error(`Connect to database error`);
       console.log('test');
       console.log('test2');
-      console.log('test3');
     }
   }
   private initializeSwagger() {
