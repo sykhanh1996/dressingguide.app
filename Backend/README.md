@@ -12,3 +12,11 @@
 - yarn add envalid
 - yarn add --dev tsconfig-paths
   gravatar: service to get avatar
+- yarn add class-validator
+- yarn add class-transformer
+- yarn add swagger-ui-express
+- yarn add -D @types/swagger-ui-express
+- yarn add -D @types/yamljs
+- yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
+- yarn add --dev @shopify/eslint-plugin
+- yarn add husky --dev

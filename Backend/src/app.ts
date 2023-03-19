@@ -1,14 +1,14 @@
-import { Route } from "@core/interfaces";
-import express from "express";
-import mongoose from "mongoose";
-import hpp from "hpp";
-import morgan from "morgan";
-import cors from "cors";
-import helmet from "helmet";
-import { Logger } from "@core/utils";
-import { errorMiddleware } from "@core/middleware";
-import YAML from "yamljs";
-import swaggerUi from "swagger-ui-express";
+import { Route } from '@core/interfaces';
+import express from 'express';
+import mongoose from 'mongoose';
+import hpp from 'hpp';
+import morgan from 'morgan';
+import cors from 'cors';
+import helmet from 'helmet';
+import { Logger } from '@core/utils';
+import { errorMiddleware } from '@core/middleware';
+import YAML from 'yamljs';
+import swaggerUi from 'swagger-ui-express';
 
 class App {
   public app: express.Application;
@@ -18,7 +18,7 @@ class App {
   constructor(routes: Route[]) {
     this.app = express();
     this.port = process.env.PORT || 5000;
-    this.production = process.env.NODE_ENV == "production" ? true : false;
+    this.production = process.env.NODE_ENV == 'production' ? true : false;
 
     this.connectToDatabase();
     this.initializeMiddleware();
@@ -35,7 +35,7 @@ class App {
 
   private initializeRoutes(routes: Route[]) {
     routes.forEach((route) => {
-      this.app.use("/", route.router);
+      this.app.use('/', route.router);
     });
   }
 
@@ -43,20 +43,20 @@ class App {
     if (this.production) {
       this.app.use(hpp());
       this.app.use(helmet());
-      this.app.use(morgan("combined"));
+      this.app.use(morgan('combined'));
       this.app.use(
         cors({
-          origin: "",
+          origin: '',
           credentials: true,
-        })
+        }),
       );
     } else {
-      this.app.use(morgan("dev"));
+      this.app.use(morgan('dev'));
       this.app.use(
         cors({
           origin: true,
           credentials: true,
-        })
+        }),
       );
     }
 
@@ -70,21 +70,21 @@ class App {
     try {
       const connectionString = process.env.MONGODB_URI;
       if (!connectionString) {
-        Logger.error("Connection string is invalid");
+        Logger.error('Connection string is invalid');
         return;
       }
       mongoose.connect(connectionString).catch((reason) => {
         Logger.error(reason);
       });
-      Logger.info("Database connected...");
+      Logger.info('Database connected...');
     } catch (error) {
-      console.log(`Connect to database error`);
+      Logger.error(`Connect to database error`);
     }
   }
   private initializeSwagger() {
-    const swaggerDocument = YAML.load("./src/swagger.yaml");
+    const swaggerDocument = YAML.load('./src/swagger.yaml');
 
-    this.app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+    this.app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
   }
 }
 
