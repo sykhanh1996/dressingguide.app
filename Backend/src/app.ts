@@ -80,6 +80,7 @@ class App {
     } catch (error) {
       Logger.error(`Connect to database error`);
       console.log('test');
+      console.log('test');
       console.log('test2');
     }
   }
