@@ -4,3 +4,24 @@
 - yarn add typescript nodemon ts-node --dev
 - yarn add mongoose
 - yarn add @types/mongoose --dev
+- yarn add dotenv
+- yarn add cross-env --dev
+- yarn add hpp helmet morgan cors
+- yarn add @types/hpp @types/morgan @types/cors --dev
+- yarn add winston
+- yarn add envalid
+- yarn add --dev tsconfig-paths
+  gravatar: service to get avatar
+- yarn add class-validator
+- yarn add class-transformer
+- yarn add swagger-ui-express
+- yarn add -D @types/swagger-ui-express
+- yarn add -D @types/yamljs
+- yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
+- yarn add --dev @shopify/eslint-plugin
+- yarn add husky -D
+- yarn add -D webpack webpack-cli
+- yarn add -D webpack-node-externals
+- yarn add -D webpack-shell-plugin
+- yarn add -D tsconfig-paths-webpack-plugin
+- yarn add ts-loader --dev

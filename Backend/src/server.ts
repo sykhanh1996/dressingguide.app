@@ -1,8 +1,11 @@
 import "dotenv/config";
-import { IndexRoute } from "./module/index";
 import App from "./app";
+import { validateEnv } from "@core/utils";
+import { IndexRoute } from "@modules/index";
+import SuggestsRoute from "@modules/suggests/suggests.route";
 
-const routes = [new IndexRoute()];
+validateEnv();
+const routes = [new IndexRoute(), new SuggestsRoute()];
 const app = new App(routes);
 
 app.listen();

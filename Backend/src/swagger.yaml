@@ -1,0 +1,48 @@
+swagger: "2.0"
+info:
+  description: "DressingGuide API docs"
+  version: "1.0.0"
+  title: "DressingGuide"
+  termOfService: "https://dressingguide.app"
+  contact:
+    email: "sykhanh1996@gmail.com"
+  license:
+    name: "MIT"
+    url: "https://opensource.org/licenses/MIT"
+host: "localhost:5000"
+basePath: "/api"
+tags:
+  - name: "suggests"
+    description: "Suggest APIs"
+schemes:
+  - "http"
+paths:
+  /suggests:
+    post:
+      tags:
+        - "suggests"
+      summary: "Suggests Color Content"
+      description: "Get Color Suggest Content"
+      operationId: "suggests"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Suggest Content For Color"
+          required: true
+          schema:
+            $ref: "#/definitions/SuggestDto"
+      responses:
+        "400":
+          description: "Invalid input"
+definitions:
+  SuggestDto:
+    type: "object"
+    properties:
+      colorId:
+        type: "string"
+      content:
+        type: "string"
