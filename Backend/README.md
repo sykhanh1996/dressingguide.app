@@ -20,3 +20,8 @@
 - yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
 - yarn add --dev @shopify/eslint-plugin
 - yarn add husky -D
+- yarn add -D webpack webpack-cli
+- yarn add -D webpack-node-externals
+- yarn add -D webpack-shell-plugin
+- yarn add -D tsconfig-paths-webpack-plugin
+- yarn add ts-loader --dev
