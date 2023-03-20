@@ -19,4 +19,4 @@
 - yarn add -D @types/yamljs
 - yarn add eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
 - yarn add --dev @shopify/eslint-plugin
-- yarn add husky --dev
+- yarn add husky -D
