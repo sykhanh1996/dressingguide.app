@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import ISuggest from './suggests.interface';
 
 const SuggestSchema = new mongoose.Schema({
-  Id: {
+  ColorId: {
     type: String,
     require: true,
   },

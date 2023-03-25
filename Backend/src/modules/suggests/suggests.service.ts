@@ -4,16 +4,26 @@ import SuggestDto from './dtos/suggest.dto';
 import ISuggest from './suggests.interface';
 import SuggestSchema from './suggests.model';
 export default class SuggestService {
-  public suggestShema = SuggestSchema;
+  public async postSuggest(dto: SuggestDto): Promise<ISuggest> {
+    let query = {};
+    if (dto.colorId) {
+      query = {
+        colorId: dto.colorId,
+      };
+    }
+    const suggestId = await SuggestSchema.findOne(query).exec();
+    if (suggestId) throw new HttpException(400, 'Record already exists');
 
-  public async postSuggest(model: SuggestDto): Promise<ISuggest> {
-    return {
-      Id: '2',
-      Color: '2',
-      ColorName: '2',
-      BorderColor: '2',
-      Content: '2',
-    };
+    const newSuggest = new SuggestSchema({
+      ColorId: dto.colorId,
+      ColorName: dto.colorName,
+      Color: dto.color,
+      BorderColor: dto.borderColor,
+      Content: dto.content,
+    });
+    const suggest = await newSuggest.save();
+
+    return suggest;
   }
 
   public test(): void {

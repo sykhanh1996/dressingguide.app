@@ -1,15 +1,15 @@
 import { IsNotEmpty } from 'class-validator';
 
 export default class SuggestDto {
-  constructor(id: string, color: string, colorName: string, borderColor: string, content: string) {
-    this.id = id;
+  constructor(colorId: string, color: string, colorName: string, borderColor: string, content: string) {
+    this.colorId = colorId;
     this.color = color;
     this.colorName = colorName;
     this.borderColor = borderColor;
     this.content = content;
   }
   @IsNotEmpty()
-  public id: string;
+  public colorId: string;
 
   @IsNotEmpty()
   public color: string;
