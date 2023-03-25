@@ -1,5 +1,7 @@
 export default interface ISuggest {
-  colorId: string;
-  content: string;
+  Id: string;
+  Color: string;
+  ColorName: string;
+  BorderColor: string;
+  Content: string;
 }
-
