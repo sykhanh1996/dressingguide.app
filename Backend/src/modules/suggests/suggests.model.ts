@@ -24,4 +24,4 @@ const SuggestSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model<ISuggest & mongoose.Document>('suggest', SuggestSchema);
+export default mongoose.model<ISuggest & mongoose.Document>('suggests', SuggestSchema);

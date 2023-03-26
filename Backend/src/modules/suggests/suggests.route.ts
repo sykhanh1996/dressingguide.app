@@ -15,7 +15,7 @@ export default class SuggestsRoute implements Route {
   }
 
   private initializeRoutes() {
-    this.router.post(this.path, validationMiddleware(SuggestDto, true), this.suggestsController.postSuggests);
+    this.router.post(this.path, this.suggestsController.postSuggests);
     this.router.get(this.path, this.suggestsController.test);
   }
 }

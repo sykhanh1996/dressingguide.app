@@ -1,48 +1,54 @@
-swagger: "2.0"
+swagger: '2.0'
 info:
-  description: "DressingGuide API docs"
-  version: "1.0.0"
-  title: "DressingGuide"
-  termOfService: "https://dressingguide.app"
+  description: 'DressingGuide API docs'
+  version: '1.0.0'
+  title: 'DressingGuide'
+  termOfService: 'https://dressingguide.app'
   contact:
-    email: "sykhanh1996@gmail.com"
+    email: 'sykhanh1996@gmail.com'
   license:
-    name: "MIT"
-    url: "https://opensource.org/licenses/MIT"
-host: "localhost:5000"
-basePath: "/api"
+    name: 'MIT'
+    url: 'https://opensource.org/licenses/MIT'
+host: 'localhost:5000'
+basePath: '/api'
 tags:
-  - name: "suggests"
-    description: "Suggest APIs"
+  - name: 'suggests'
+    description: 'Suggest APIs'
 schemes:
-  - "http"
+  - 'http'
 paths:
   /suggests:
     post:
       tags:
-        - "suggests"
-      summary: "Suggests Color Content"
-      description: "Get Color Suggest Content"
-      operationId: "suggests"
+        - 'suggests'
+      summary: 'Suggests Color Content'
+      description: 'Post Color Suggest Content'
+      operationId: 'suggests'
       consumes:
-        - "application/json"
+        - 'application/json'
       produces:
-        - "application/json"
+        - 'application/json'
       parameters:
-        - in: "body"
-          name: "body"
-          description: "Suggest Content For Color"
+        - in: 'body'
+          name: 'body'
+          description: 'Suggest Content For Color'
           required: true
           schema:
-            $ref: "#/definitions/SuggestDto"
+            $ref: '#/definitions/SuggestDto'
       responses:
-        "400":
-          description: "Invalid input"
+        '400':
+          description: 'Invalid input'
 definitions:
   SuggestDto:
-    type: "object"
+    type: 'object'
     properties:
       colorId:
-        type: "string"
+        type: 'string'
+      color:
+        type: 'string'
+      colorName:
+        type: 'string'
+      borderColor:
+        type: 'string'
       content:
-        type: "string"
+        type: 'string'

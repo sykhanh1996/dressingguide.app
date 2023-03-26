@@ -8,8 +8,8 @@ export default class SuggestsController {
 
   public postSuggests = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const models: SuggestDto = req.body;
-      const postedSuggests: ISuggest = await this.suggestService.postSuggest(models);
+      const models: SuggestDto[] = req.body;
+      const postedSuggests: ISuggest[] = await this.suggestService.postSuggest(models);
       res.status(201).json(postedSuggests);
     } catch (error) {
       next(error);

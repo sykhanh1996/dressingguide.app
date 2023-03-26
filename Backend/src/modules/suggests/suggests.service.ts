@@ -4,27 +4,38 @@ import SuggestDto from './dtos/suggest.dto';
 import ISuggest from './suggests.interface';
 import SuggestSchema from './suggests.model';
 export default class SuggestService {
-  public async postSuggest(dto: SuggestDto): Promise<ISuggest> {
+  public async postSuggest(dto: SuggestDto[]): Promise<ISuggest[]> {
     let query = {};
-    if (dto.colorId) {
+    const lstId: string[] = dto.map((item) => {
+      return item.colorId;
+    });
+    if (dto) {
       query = {
-        colorId: dto.colorId,
+        ColorId: { $in: lstId },
       };
     }
-    const suggestId = await SuggestSchema.findOne(query).exec();
+    const suggestId = await SuggestSchema.find(query).exec();
 
-    if (suggestId) throw new HttpException(400, 'Record already exists');
+    if (suggestId.length > 0) throw new HttpException(400, 'Record already exists');
 
-    const newSuggest = new SuggestSchema({
-      ColorId: dto.colorId,
-      ColorName: dto.colorName,
-      Color: dto.color,
-      BorderColor: dto.borderColor,
-      Content: dto.content,
+    const lstInsert = dto.map((item) => {
+      return {
+        ColorId: item.colorId,
+        ColorName: item.colorName,
+        Color: item.color,
+        BorderColor: item.borderColor,
+        Content: item.content,
+      };
     });
-    const suggest = await newSuggest.save();
+    const newSuggests = SuggestSchema.insertMany(lstInsert)
+      .then(function () {
+        return lstInsert;
+      })
+      .catch(function (err) {
+        throw new HttpException(400, '[Error]:' + err);
+      });
 
-    return suggest;
+    return newSuggests;
   }
 
   public test(): void {
