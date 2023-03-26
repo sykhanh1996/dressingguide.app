@@ -12,6 +12,7 @@ export default class SuggestService {
       };
     }
     const suggestId = await SuggestSchema.findOne(query).exec();
+
     if (suggestId) throw new HttpException(400, 'Record already exists');
 
     const newSuggest = new SuggestSchema({
